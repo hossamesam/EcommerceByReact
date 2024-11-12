@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lalezar&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[Data-theme="light"],
+:root {
+  --header: rgb(3, 162, 255);
+  --textColor: #000000;
+  --bg: #e8f0f1;
+  --input: #dadada;
+  --primary: rgba(255, 255, 255, 0.821);
+  --hoverA: rgb(35, 139, 199);
+}
+
+[Data-theme="dark"] {
+  --header: #000000;
+  --textColor: #ffffff;
+  --bg: #3a3b32;
+  --input: #554545;
+  --primary: rgba(242, 242, 242, 0.684);
+  --hoverA: rgb(35, 139, 199);
+}
+
+[Data-theme="custom"] {
+  --header: #82c6f1;
+  --textColor: #ffffff;
+  --bg: #1d72c7;
+  --input: #a83c3c;
+  --primary: rgba(242, 242, 242, 0.684);
+  --hoverA: rgb(35, 139, 199);
+}
+
+:root {
+
+  font-family: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--textColor);
+  background-color: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}

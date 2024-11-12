@@ -1,0 +1,18 @@
+{
+  "TitleLogo": "EShop",
+  "Header": {
+    "lng": "language",
+    "search": "search",
+    "register": "register",
+    "cart": "cart"
+  },
+  "category": {
+    "men": "Men's Clothing",
+    "womens": "Ladies' Clothing",
+    "babys": "Children's Clothing",
+    "shoes": "Shoes",
+    "createProduct": "Add Product",
+    "createColor": "Add Color",
+    "createPolicy": "Add Policy"
+  }
+}

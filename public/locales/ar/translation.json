@@ -1,0 +1,18 @@
+{
+  "TitleLogo": "EShop",
+  "Header": {
+    "lng": "اللغة",
+    "search": "بحث",
+    "register": "تسجيل",
+    "cart": "التسوق"
+  },
+  "category": {
+    "men": "ملابس رجال",
+    "womens": "ملابس سيدات",
+    "babys": "ملابس اطفال",
+    "shoes": "احذية",
+    "createProduct": "اضافة منتج",
+    "createColor": "اضافة لون",
+    "createPolicy": "اضافة سياسة"
+  }
+}
