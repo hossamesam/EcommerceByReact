@@ -1,0 +1,35 @@
+.minBox {
+}
+.minInputStyle {
+  color: rgb(255, 0, 0);
+  background-color: transparent;
+}
+.maxBox {
+}
+.maxInputStyle {
+  color: rgb(255, 0, 0);
+  background-color: transparent;
+}
+.minvalStyle{
+  color: aquamarine;
+
+}
+.maxvalstyle{
+  background-color: chartreuse;
+  color: aquamarine;
+
+}
+
+.doublesliderbox {
+}
+.rangeslider {
+}
+.slidertrack {
+}
+.mintooltip {
+}
+.maxtooltip {
+}
+.inputbox {
+
+}

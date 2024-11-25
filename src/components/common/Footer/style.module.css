@@ -1,0 +1,46 @@
+.siteFooter {
+  background-color: var(--header);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  color: #737373;
+}
+
+.h1 {
+  color: var(--textHeader);
+  font-size: 24px;
+}
+
+.siteFooter ul {
+  padding: 0 20px;
+}
+
+.h1~li {
+  color: var(--textHeader);
+  font-size: 14px;
+}
+
+.Links {
+  display: flex;
+  flex-direction: column;
+  min-width: 2rem;
+  max-width: 8rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--textHeader);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.Links:hover {
+  color: yellow;
+}
+
+.Links:hover ::after {
+  content: " ";
+  box-shadow: 0 10px 90px 12px yellow;
+  z-index: 10;
+  position: absolute;
+}

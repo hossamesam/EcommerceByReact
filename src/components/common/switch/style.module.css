@@ -1,0 +1,46 @@
+.togglecheckbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.toggleslot {
+  font-size: 10px;
+  position: relative;
+  height: 2.5em;
+  width: 10em;
+  border: 0px solid transparent;
+  border-radius: 10em;
+  background-color: white;
+  transition: background-color 850ms;
+  cursor: pointer;
+}
+
+.togglecheckbox:checked~.toggleslot {
+  background-color: #0062ff;
+  cursor: pointer;
+}
+
+.togglebutton {
+  transform: translate(-4em, 0em);
+  position: absolute;
+  top: 5%;
+  left: 42px;
+  padding: 18px !important;
+  cursor: pointer;
+
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: inset 0px 0px 0px 0.5em #ff9900;
+  transition: background-color 250ms, border-color 250ms,
+    transform 500ms cubic-bezier(0.26, 2, 0.46, 0.71);
+}
+
+.togglecheckbox:checked~.toggleslot .togglebutton {
+  background-color: #485367;
+  box-shadow: inset 0px 0px 0px 0.5em white;
+  transform: translate(2em);
+
+}

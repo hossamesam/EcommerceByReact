@@ -1,9 +1,9 @@
 import React from 'react'
-import "@styles/index.css"
+import Categories from './categories'
 function Home() {
     return (
         <div >
-            Home
+            <Categories/>
         </div>
     )
 }

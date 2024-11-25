@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { createRef, forwardRef } from 'react'
 import style from "./dropbtn.module.css";
 const { dropbtn, dropup, dropup_content } = style
-export default function Dropbtn2() {
+
+const Dropbtn2 = forwardRef(function Dropbtn2(_, ref: any) {
+    const fontFamiles = ["Marhey", "cairo", "Lalezar", "Inter", "system", "Avenir", "Helvetica", "Arial", "sans-serif"]
+    function ChngeDesign(e: any) {
+        document.documentElement.style.setProperty('--fontClone', e.target.value)
+        ref.current = e.target.value
+
+    }
+
     return (
         <div className={dropup}>
             <button className={dropbtn}>Dropup</button>
             <div className={dropup_content}>
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                {fontFamiles.map((e) => <button onClick={(e) => ChngeDesign(e)} value={e}>{e}</button>)}
             </div>
         </div>
     )
-}
+})
+
+export default Dropbtn2

@@ -5,17 +5,29 @@ export type Categorietype = {
   Text?: string;
   link?: string;
 };
-export type Carttype = {
+export type TCart = {
   backgroundImage: string;
   Text: string;
   Price: number;
   CurrencyType?: string;
+  description: string;
 };
 export type getAllItemstype = {
-  sizeItems?: number;
-  page?: number;
+  sizeItems: number;
+  page: number;
 };
-export type Items = {
+export type TCategories = {
+  "id": String,
+  "code": String,
+  "nameAr": String,
+  "nameTranslate": {
+    "en": String
+  },
+  "attributes": [],
+  "level": Number
+}
+
+export type TProduct = {
   attributes: {};
   barcode: string;
   category: { id: number; attributes: [] };
@@ -42,3 +54,21 @@ export type Items = {
     }
   ]
 }
+export type TFilterCategory =
+  {
+    id: number;
+    code: string;
+    nameAr: string;
+    nameTranslate: {
+      en: string;
+    };
+    attributes: [];
+    parent: {
+      id: number;
+      attributes: [];
+    };
+    level: number;
+  }
+export type TFilterColor ={ "id": string, "name": string, "code": string }
+
+export type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed'

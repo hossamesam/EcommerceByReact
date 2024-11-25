@@ -1,33 +1,42 @@
 import Categorie from '@components/eCommerce/Category/Categorie';
-import React, { useState } from 'react'
+import i18next from 'i18next';
+import React, { useEffect, useState } from 'react'
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { actGetCategories } from 'src/redux/categories/categoriesSlice';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 
 
 function Categories({ t }: any) {
+    const dispatch = useAppDispatch()
+    const { Data, error, loading } = useAppSelector((state) => state.categories);
+
+    useEffect(() => {
+        dispatch(actGetCategories({ page: 0, sizeItems: 1 }))
+    }, [dispatch])
+
     return (
-        <div className='grid  grid-cols-2'>
-            <Categorie Text={t("category.womens")} link='./womens_store' backgroundImage='/src/assets/image_catogrey/women_catogrey.jpg' backgroundPosition='center' backgroundSize='contain' />
-            <Categorie Text={t("category.men")} link='./men_store' backgroundImage='/src/assets/image_catogrey/man_catogrey.jpg' backgroundPosition='inherit' backgroundSize='cover' />
-            <Categorie Text={t("category.shoes")} link='./shoes_store' backgroundImage='/src/assets/image_catogrey/shoes_catogrey.jpg' backgroundPosition='center' backgroundSize='cover' />
-            <Categorie Text={t("category.babys")} link='./babys_store' backgroundImage='/src/assets/image_catogrey/baby_catogrey.jpg' backgroundPosition='0px -20px' backgroundSize='cover' />
+        <div className='grid
+        mx-auto
+        gap-2
+        sm:grid-cols-2
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-2
+        2xl:grid-cols-2
+        '>
+            {/* {Data.map((e) => (
+                <div>
+                    <Categorie Text={i18next.language == "ar" ? e.nameAr : e.nameTranslate.en} link={`${e.code}/${e.id}`} backgroundImage='/src/assets/image_catogrey/man_catogrey.jpg' backgroundPosition='inherit' backgroundSize='cover' />
+                </div>
+            ))} */}
+            <Categorie Text={t("category.men")} link='/Categories/men_store/1' backgroundImage='/src/assets/image_catogrey/man_catogrey.jpg' backgroundPosition='inherit' backgroundSize='cover' />
+            <Categorie Text={t("category.womens")} link='/Categories/womens_store' backgroundImage='/src/assets/image_catogrey/women_catogrey.jpg' backgroundPosition='center' backgroundSize='contain' />
+            <Categorie Text={t("category.shoes")} link='/Categories/shoes_store' backgroundImage='/src/assets/image_catogrey/shoes_catogrey.jpg' backgroundPosition='center' backgroundSize='cover' />
+            <Categorie Text={t("category.babys")} link='/Categories/babys_store' backgroundImage='/src/assets/image_catogrey/baby_catogrey.jpg' backgroundPosition='0px -20px' backgroundSize='cover' />
+
         </div>
     )
 }
 
 export default withTranslation()(Categories);
-
-{/* <nav className={'grid  -z-50 ease-out bg-neutral-100 absolute w-full p-8  grid-cols-2 max-sm:grid-cols-1 items-center max-sm:gap-2  gap-16 '}>
-    <Link to="/man_store" className='relative   h-96 w-full object-contain rounded-lg filter  hover:scale-105 hover:grayscale-[50%]' >
-        <div className="absolute max-sm:text-xs   flex w-full h-1/5 bottom-0 items-center justify-center text-white bg-black font-sans font-bold">{t("category.Mens")}</div>
-    </Link>
-    <Link to="/woman_store/page/1" className='relative  h-96 w-full  object-cover rounded-lg  hover:scale-105 hover:grayscale-[50%]' >
-        <div className='absolute max-sm:text-xs flex w-full  h-1/5 items-center bottom-0 justify-center text-white bg-black font-sans font-bold'>{t("category.womens")}</div>
-    </Link>
-    <Link to="/baby_store" className='relative   h-96 w-full  object-fill rounded-lg  hover:scale-105 hover:grayscale-[50%]' >
-        <div className='absolute max-sm:text-xs flex w-full h-1/5 items-center bottom-0 justify-center text-white bg-black font-sans font-bold'>{t("category.babys")}</div>
-    </Link>
-    <Link to="/shoses_store" className='relative   h-96 w-full  object-fill rounded-lg  hover:scale-105 hover:grayscale-[50%]' >
-        <div className='absolute max-sm:text-xs flex w-full h-1/5 items-center bottom-0 justify-center text-white bg-black font-sans font-bold'>{t("category.shoes")}</div>
-    </Link>
-</nav> */}

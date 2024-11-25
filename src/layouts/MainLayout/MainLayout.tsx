@@ -1,25 +1,29 @@
-import React, { Suspense } from 'react'
-import { Header1, Header2, Header3, Header4, Header5 } from '@components/common/headers';
-import { SearchForDesktop, SearchForMobile } from '@components/common/searchs';
-import { ScrollPort1 } from '@components/common/scrollport';
-import { Otp } from '@components/common/otp';
-import { Slider1 } from '@components/common/sliders';
+import { Suspense, useEffect } from 'react'
+import { Header5 } from '@components/common/headers';
+
 import { Outlet } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import '../../i18n';
 import i18next from 'i18next';
-import style from './styles.module.css';
-import Dropbtn from '@components/common/dropbtns/dropbtn1/dropbtn1';
-const { body } = style
+import Footer from '@components/common/Footer/Footer';
+import { useAppDispatch } from 'src/redux/hooks';
+import { actSetTheme } from 'src/redux/theme/themeSlice';
 export default function MainLayout() {
+    const dispatch = useAppDispatch()
 
+    useEffect(() => {
+        localStorage.getItem("theme") == "custom" && dispatch(actSetTheme({ theme: "custom" }))
+        localStorage.getItem("theme") == "dark" && document.querySelector("body")?.setAttribute("Data-theme", "dark")
+
+    }, [])
     return (
-        <div dir={i18next.dir()} className={body + ' h-[200vh]'}>
+        <div dir={i18next.dir()} >
             <Header5 />
             <Suspense fallback="loading" >
                 <Outlet />
             </Suspense>
-            <button onClick={() => {
+            <Footer />
+
+            {/* <button onClick={() => {
                 console.log('====================================');
                 console.log(document.body);
                 console.log('====================================');
@@ -37,7 +41,7 @@ export default function MainLayout() {
                 custom
             </button>
             <input onChange={(e) => customFn(e)} type="color" id='colors' />
-            <div id='gg' className='w-24 h-24 bg-blue-500'></div>
+            <div id='gg' className='w-24 h-24 bg-blue-500'></div> */}
             {/* <SearchForMobile />
             <ScrollPort1 /> */}
         </div >

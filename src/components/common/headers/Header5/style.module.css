@@ -8,7 +8,7 @@
     height: 100px;
     width: 100%;
     background-color: var(--header);
-    color: var(--textColor);
+    color: var(--textHeader);
     font-weight: 500;
     font-size: 22px;
     display: grid;
@@ -18,7 +18,7 @@
 
 .search {
     background-color: var(--header);
-    color: var(--textColor);
+    color: var(--textHeader);
 }
 
 

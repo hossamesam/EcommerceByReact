@@ -14,5 +14,45 @@
     "createProduct": "Add Product",
     "createColor": "Add Color",
     "createPolicy": "Add Policy"
+  },
+  "SignUp": {
+    "signup": "Log in",
+    "Login": "Register a new user",
+    "join": "Join us via Google account",
+    "signUp-google": "Sign Up with Google",
+    "signUp-email": "Or with email",
+    "email": "Email",
+    "password": "Password",
+    "have-account": "Already have an account",
+    "Login-here": "Log in directly",
+    "username": "Username",
+    "firstName": "First name",
+    "lastName": "Last name"
+  },
+  "Footer": {
+    "aboutUs": "About Us",
+    "TaboutUs": "Welcome to EShop! We are your ideal destination for online shopping, where we offer a smooth and secure shopping experience that suits your daily needs. We strive to provide a diverse range of high-quality products at competitive prices, with a focus on meeting and exceeding our customers' expectations.",
+    "OurVision": "Our Vision",
+    "TOurVision": "We aim to become the first choice for online shopping in the Arab world, by offering innovative products and an unforgettable user experience.",
+    "OurMission": "Our Mission",
+    "TOurMission": [
+      "Providing a diverse range of products that suit your daily needs.",
+      "Offering reliable and fast services from the moment you place your order until you receive the product.",
+      "Committing to customer satisfaction through available technical support."
+    ],
+    "whyUs": "Why EShop?",
+    "TwhyUs": [
+      "Product variety: You'll find everything you need under one roof.",
+      "Competitive prices: Enjoy the best offers and discounts.",
+      "Fast and secure service: We offer flexible and fast shipping options to ensure your comfort.",
+      "Distinctive customer support: Our team is ready to answer your questions and solve your problems at any time."
+    ],
+    "copyRight": "© 2024 EShop. All rights reserved.",
+    "Links": {
+      "policy": "Return and Replacement Policy",
+      "ShippingPolicy": "Shipping and Delivery Methods",
+      "payment": "Available Payment Methods",
+      "contactUs": "Contact Us"
+    }
   }
 }

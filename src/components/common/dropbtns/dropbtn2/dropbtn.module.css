@@ -34,12 +34,25 @@
 
 /* Change color of dropup links on hover */
 .dropup_content a:hover {
-    background-color: #ddd
+    background-color: #ddd;
+
 }
 
 /* Show the dropup menu on hover */
 .dropup:hover .dropup_content {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.dropup .dropup_content button {
+    width: 100%;
+    text-align: start;
+    padding: 4px;
+}
+
+.dropup .dropup_content button:hover {
+    background-color: rgb(255, 0, 0);
 }
 
 /* Change the background color of the dropup button when the dropup content is shown */

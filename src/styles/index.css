@@ -8,30 +8,36 @@
 
 [Data-theme="light"],
 :root {
-  --header: rgb(3, 162, 255);
-  --textColor: #000000;
-  --bg: #e8f0f1;
-  --input: #dadada;
-  --primary: rgba(255, 255, 255, 0.821);
-  --hoverA: rgb(35, 139, 199);
+  --header: rgb(3, 162, 255) !important;
+  --textHeader: #ffffff !important;
+  --textColor: #000000 !important;
+  --bg: #e8f0f1 !important;
+  --bgCart: white !important;
+  --input: #dadada !important;
+  --primary: rgba(255, 255, 255, 0.821) !important;
+  --hoverA: rgb(35, 139, 199) !important;
 }
 
 [Data-theme="dark"] {
-  --header: #000000;
-  --textColor: #ffffff;
-  --bg: #3a3b32;
-  --input: #554545;
-  --primary: rgba(242, 242, 242, 0.684);
-  --hoverA: rgb(35, 139, 199);
+  --header: #000000 !important;
+  --textHeader: #ffffff !important;
+  --textColor: #000000 !important;
+  --bg: #3a3b32 !important;
+  --bgCart: white !important;
+  --input: #554545 !important;
+  --primary: rgba(242, 242, 242, 0.684) !important;
+  --hoverA: rgb(35, 139, 199) !important;
 }
 
 [Data-theme="custom"] {
-  --header: #82c6f1;
-  --textColor: #ffffff;
-  --bg: #1d72c7;
-  --input: #a83c3c;
-  --primary: rgba(242, 242, 242, 0.684);
-  --hoverA: rgb(35, 139, 199);
+  --header: rgb(121, 206, 255);
+  --textHeader: #ffffff;
+  --textColor: #000000;
+  --bg: #e8f0f1;
+  --input: white;
+  --primary: #dadada;
+  --hoverA: var(--textColor);
+  --FontFamile: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 :root {

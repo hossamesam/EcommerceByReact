@@ -1,15 +1,15 @@
 import React from 'react'
 import { Menu } from '../../svg/Menu/Menu'
-import style from "./style.module.css";
-const { search, header, logo, login, cart, nav, ul, li } = style
 import { CircleUserRound, Globe, Home, ShoppingCart } from 'lucide-react';
 import { SearchForDesktop, SearchForMobile } from '@components/common/searchs';
 import { withTranslation } from 'react-i18next';
 import i18next, { changeLanguage } from 'i18next';
 import { SwitchLanguage } from '@util/getLanguage';
 import { Link } from 'react-router-dom';
-
 import Dropbtn1 from '@components/common/dropbtns/dropbtn1/dropbtn1';
+
+import style from "./style.module.css";
+const { search, header, logo, nav, ul, li } = style
 
 function Header5({ t }: any) {
 
@@ -17,7 +17,7 @@ function Header5({ t }: any) {
         <header className={header} dir={i18next.dir()}>
 
             <div className={logo}>
-                <a href="#">
+                <a href="/">
                     {t("TitleLogo")}
                 </a>
             </div>
@@ -37,7 +37,7 @@ function Header5({ t }: any) {
                             </button>
                         </li> */}
                     <li className={li}>
-                        <Link to="/" >
+                        <Link to="/register" >
                             <span><CircleUserRound size={28} /></span>
                             {t("Header.register")}
 
@@ -53,6 +53,7 @@ function Header5({ t }: any) {
                     <li><Menu /></li>
                 </ul>
             </nav>
+
         </header>
     )
 }

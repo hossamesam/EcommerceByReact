@@ -14,5 +14,45 @@
     "createProduct": "Produkt hinzufügen",
     "createColor": "Farbe hinzufügen",
     "createPolicy": "Eine Richtlinie hinzufügen"
+  },
+  "SignUp": {
+    "signup": "Login",
+    "Login": "Registrieren Sie einen neuen Benutzer",
+    "join": "Treten Sie uns über Ihr Google-Konto bei",
+    "signUp-google": "Melden Sie sich mit Google an",
+    "signUp-email": "Oder per E-Mail",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "have-account": "Sie haben bereits ein Konto",
+    "Login-here": "Melden Sie sich direkt an",
+    "username": "Benutzername",
+    "firstName": "Vorname",
+    "lastName": "Nachname"
+  },
+  "Footer": {
+    "aboutUs": "Über uns",
+    "TaboutUs": "Willkommen bei EShop! Wir sind Ihre ideale Destination für Online-Shopping, wo wir Ihnen ein reibungsloses und sicheres Einkaufserlebnis bieten, das Ihren täglichen Bedürfnissen entspricht. Wir streben danach, eine vielfältige Palette hochwertiger Produkte zu wettbewerbsfähigen Preisen anzubieten, mit einem Fokus auf die Erfüllung und Übertreffung der Erwartungen unserer Kunden.",
+    "OurVision": "Unsere Vision",
+    "TOurVision": "Wir streben danach, die erste Wahl für Online-Shopping in der arabischen Welt zu werden, indem wir innovative Produkte und ein unvergessliches Benutzererlebnis anbieten.",
+    "OurMission": "Unsere Mission",
+    "TOurMission": [
+      "Eine vielfältige Palette von Produkten anbieten, die Ihren täglichen Bedürfnissen entsprechen.",
+      "Zuverlässige und schnelle Dienstleistungen von der Bestellung bis zur Lieferung des Produkts anbieten.",
+      "Sich für die Zufriedenheit unserer Kunden durch verfügbare technische Unterstützung einsetzen."
+    ],
+    "whyUs": "Warum EShop?",
+    "TwhyUs": [
+      "Produktvielfalt: Sie finden alles, was Sie benötigen, unter einem Dach.",
+      "Wettbewerbsfähige Preise: Genießen Sie die besten Angebote und Rabatte.",
+      "Schnelle und sichere Dienstleistungen: Wir bieten flexible und schnelle Versandoptionen, um Ihre Komfort zu gewährleisten.",
+      "Hervorragender Kundenservice: Unser Team ist bereit, Ihre Fragen zu beantworten und Ihre Probleme zu lösen."
+    ],
+    "copyRight": "© 2024 EShop. Alle Rechte vorbehalten.",
+    "Links": {
+      "policy": "Rückgaberecht und Umtauschpolitik",
+      "ShippingPolicy": "Versand- und Lieferbedingungen",
+      "payment": "Verfügbare Zahlungsmethoden",
+      "contactUs": "Kontaktieren Sie uns"
+    }
   }
 }

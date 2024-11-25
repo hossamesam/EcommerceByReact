@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
-import style from "./dropbtn.module.css";
 import { Globe } from 'lucide-react';
 import { withTranslation } from 'react-i18next';
 import i18next, { changeLanguage } from 'i18next';
 import { Flag_Egypt, Flag_Australia, Flag_Germany } from '@assets/Flags.jsx';
+import style from "./dropbtn.module.css";
 const { dropbtn, dropup, dropup_content } = style
 function Dropbtn1({ t }: any) {
     useEffect(() => {
         document.getElementById(i18next.language)?.setAttribute("disabled", "true")
     }, [])
-    
+
     return (
         <div className={dropup}>
             <button className={dropbtn} type="button" >
@@ -38,6 +38,7 @@ function Dropbtn1({ t }: any) {
 }
 export default withTranslation()(Dropbtn1);
 
+
 function changeLanguageFn(lang: any) {
     changeLanguage(lang)
     document.querySelector(`#myDropdown`)?.querySelectorAll(`button`).forEach((item: any) => {
@@ -47,5 +48,6 @@ function changeLanguageFn(lang: any) {
         else {
             item.removeAttribute("disabled")
         }
+        window.location.reload()
     })
 }

@@ -1,5 +1,5 @@
  .categorie {
-     width: 50vw;
+     width: 49vw;
      height: 300px;
      background-color: rgb(255, 255, 255);
      background-repeat: no-repeat;
@@ -26,4 +26,11 @@
 
  .categorie:hover {
      background-blend-mode: luminosity;
+ }
+
+ @media (min-width: 0) and (max-width: 640px) {
+     .categorie {
+         width: 90vw;
+         margin: auto;
+     }
  }
