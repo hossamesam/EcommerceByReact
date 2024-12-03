@@ -35,7 +35,6 @@ const toggleFilledClass = (field) => {
 form.addEventListener("input", (e) => {
     const target = e.target;
     const value = target.value;
-    console.log({ target, value });
     toggleFilledClass(target);
     if (target.nextElementSibling) {
         target.nextElementSibling.focus();
@@ -51,7 +50,6 @@ inputs.forEach((input, currentIndex) => {
     input.addEventListener("paste", (e) => {
         e.preventDefault();
         const text = e.clipboardData.getData("text");
-        console.log(text);
         inputs.forEach((item, index) => {
             if (index >= currentIndex && text[index - currentIndex]) {
                 item.focus();

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { TCategories, getAllItemstype } from '@types/eCommerceTypes';
+import { TCategories, getAllItemstype } from '@typesTs/eCommerceTypes';
 import axios from 'axios';
 
 

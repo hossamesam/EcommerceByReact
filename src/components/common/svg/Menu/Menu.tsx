@@ -22,9 +22,12 @@ export function Menu() {
                     <a href="#">About</a>
                     <a href="#">Services</a>
                     <Link to="/designsystem">custom mode</Link>
-                    <SwitchMode />
+                    <div className='flex items-end  gap-2'>
+                        <span>mode</span>
+                        <SwitchMode />
+                    </div>
                 </div>
-                <div onClick={() => check()} id='xx' className={xx + ' w-full bg-emerald-400/50 '}></div>
+                <div onClick={() => check()} id='xx' className={xx + ' w-full bg-zinc-950/50 '}></div>
 
             </div>
 

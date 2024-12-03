@@ -5,6 +5,7 @@ const actSetTheme = createAsyncThunk('theme/actSetTheme', async ({ VariableColor
 
     try {
         console.log("theme: ", theme);
+        theme == "custom" && localStorage.setItem("theme", "custom");
 
         if (localStorage.getItem("theme") == "custom" || theme == "custom") {
             document.querySelector("body")?.setAttribute("Data-theme", "custom")
@@ -13,9 +14,10 @@ const actSetTheme = createAsyncThunk('theme/actSetTheme', async ({ VariableColor
                 const customThemeElement = document.querySelector(`[Data-theme="custom"]`);
                 if (customThemeElement) {
                     const stylesheet = document.styleSheets[0];
-                    stylesheet.insertRule(`:root {[Data-theme="custom"]: ${VariableColors}; }`);
-                    // Object.keys(VariableColors).map((e) => customThemeElement.style.setProperty(`--${e}`, VariableColors[e]))
+                    // stylesheet.insertRule(`:root {[Data-theme="custom"]: ${VariableColors}; }`);
+                    Object.keys(VariableColors).map((e) => customThemeElement.style.setProperty(`--${e}`, VariableColors[e]))
                 }
+
             }
             else if (!VariableColors) {
                 const varColor = JSON.parse(localStorage.getItem("design"))
@@ -23,9 +25,8 @@ const actSetTheme = createAsyncThunk('theme/actSetTheme', async ({ VariableColor
                 const customThemeElement = document.querySelector(`[Data-theme="custom"]`);
                 if (customThemeElement) {
                     const stylesheet = document.styleSheets[0];
-                    stylesheet.insertRule(`:root {[Data-theme="custom"]: ${VariableColors}; }`);
-
-                    // Object.keys(varColor as any).map((e) => customThemeElement.style.setProperty(`--${e}`, varColor[e]))
+                    // stylesheet.insertRule(`:root {[Data-theme="custom"]: ${VariableColors}; }`);
+                    Object.keys(varColor as any).map((e) => customThemeElement.style.setProperty(`--${e}`, varColor[e]))
 
                 }
             }

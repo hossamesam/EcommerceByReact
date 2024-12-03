@@ -5,25 +5,24 @@ import { RegisterIcon } from "@assets/SVGs";
 import { withTranslation } from "react-i18next";
 import i18next from "i18next";
 import GoogleOAuth from "@components/Auth/GoogleOAuth";
-import { TFormData, signupSchema } from '@types/registerTypes';
+import { TFormData, signupSchema } from '@typesTs/registerTypes';
 
 
 
 function Register({ t }: any) {
 
 
-    const { handleSubmit, register,formState: { errors, isSubmitting, isDirty, isValid }} =
+    const { handleSubmit, register, formState: { errors, isSubmitting, isDirty, isValid } } =
         useForm<TFormData>({
-        mode: 'onChange',
-        resolver: zodResolver(signupSchema)
-    })
+            mode: 'onChange',
+            resolver: zodResolver(signupSchema)
+        })
 
 
 
     async function onSubmit({ email, firstName, lastName, login, password }: TFormData) {
         const users = { email, firstName, lastName, login, password, langKey: i18next.language }
-        console.log("data:");
-        console.log(users);
+
 
         axios.post(`${import.meta.env.VITE_BaseUrl}/api/register`, users,
             {
@@ -33,7 +32,7 @@ function Register({ t }: any) {
             }
         )
             // .then(() => window.location.replace("/Categories"))
-            .catch((err) => console.log(err))
+            .catch((err) => console.log("err :", err))
     }
 
 

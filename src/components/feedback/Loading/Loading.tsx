@@ -1,4 +1,4 @@
-import { TLoading } from "@types/eCommerceTypes";
+import { TLoading } from "@typesTs/eCommerceTypes";
 
 type LoadingProps = {
     loading: TLoading;

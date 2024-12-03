@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./style.module.css";
-import { Categorietype } from "@types/eCommerceTypes";
+import { Categorietype } from "@typesTs/eCommerceTypes";
 import { Link } from 'react-router-dom';
 const { categorie, text } = style
 

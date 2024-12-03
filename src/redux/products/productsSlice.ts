@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { TLoading, TProduct } from '@types/eCommerceTypes';
+import { TLoading, TProduct } from '@typesTs/eCommerceTypes';
 import actGetProducts from './act/actGetProducts';
 
 

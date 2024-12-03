@@ -9,18 +9,20 @@ import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import Pagination from '@components/Pagination';
 import { useParams } from 'react-router-dom';
 import { Loading } from '@components/feedback';
+import { Sucess } from '@components/common/loading';
 
 export default function Men_store() {
   const dispatch = useAppDispatch()
   const language = i18next.language
   const { loading, error, Data, PaginationCount } = useAppSelector((state) => state.Products);
-  console.log("records_records:", Data);
 
   const Params = useParams()
 
   useEffect(() => {
     dispatch(actGetProducts({ page: Number(Params.prefix), sizeItems: 5 }))
   }, [dispatch])
+
+
   return (
     <Loading loading={loading} error={error} >
       <div>
@@ -36,17 +38,23 @@ export default function Men_store() {
       2xl:grid-cols-5
       '>
               {Data.map((item) => {
-                return <Cart backgroundImage={`${import.meta.env.VITE_BaseUrl}/api/attachments/public/${item.attachments[0].guid}`} Price={item.sellPrice}
+                return <Cart
+                  {...item}
+                  backgroundImage={`${import.meta.env.VITE_BaseUrl}/api/attachments/public/${item.attachments[0].guid}`}
+                  Price={item.sellPrice}
                   Text={language === 'en' ? item.nameTranslate.en : item.nameAr}
-                  description={language === 'en' ? item.descriptionTranslate.en : item.description} CurrencyType='EGP' />
+                  description={language === 'en' ? item.descriptionTranslate.en : item.description} CurrencyType='EGP'
+                />
               })}
             </div>
+
             <div className="flex justify-center items-center  w-full my-20 ">
               <Pagination PaginationCount={PaginationCount} routs={`Categories/men_store/`} />
             </div>
           </div>
         </div>
       </div>
+
     </Loading>
   )
 }

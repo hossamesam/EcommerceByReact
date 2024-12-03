@@ -6,6 +6,7 @@ export type Categorietype = {
   link?: string;
 };
 export type TCart = {
+  id: number;
   backgroundImage: string;
   Text: string;
   Price: number;
@@ -52,7 +53,8 @@ export type TProduct = {
       code: string,
       guid: string
     }
-  ]
+  ],
+  quantity?: number
 }
 export type TFilterCategory =
   {
@@ -69,6 +71,6 @@ export type TFilterCategory =
     };
     level: number;
   }
-export type TFilterColor ={ "id": string, "name": string, "code": string }
+export type TFilterColor = { "id": string, "name": string, "code": string }
 
 export type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed'

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { TCategories, TLoading } from '@types/eCommerceTypes';
+import { TCategories, TLoading } from '@typesTs/eCommerceTypes';
 import actGetCategories from './act/actGetCategories';
 
 
@@ -11,7 +11,7 @@ interface ICategoriesState {
 const initialState: ICategoriesState = {
     Data: [],
     loading: 'idle',
-    error: 'null',
+    error: null,
 }
 
 

@@ -12,7 +12,6 @@ function ColorDesign() {
   useEffect(() => {
     const designData = localStorage.getItem("design")
     designData != null && setdesignPattern(designData)
-    console.log("designPattern", designPattern);
 
   }, [])
   function handleSubmit(e) {
@@ -63,6 +62,7 @@ function ColorDesign() {
 }
 
 export default ColorDesign
+
 
 function ChngeDesign({ variable, e }: { variable: string, e: any }) {
   document.documentElement.style.setProperty(variable, e.target.value)

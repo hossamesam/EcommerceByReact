@@ -26,7 +26,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@util/*": ["src/util/*"],
       "@services/*": ["src/services/*"],
-      "@types/*": ["src/types/*"],
+      "@typesTs/*": ["src/types/*"],
+      "@redux/*": ["src/redux/*"],
       "@eCommerce/*": ["src/components/eCommerce/*"]
     },
     /* Linting */

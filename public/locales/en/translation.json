@@ -54,5 +54,8 @@
       "payment": "Available Payment Methods",
       "contactUs": "Contact Us"
     }
+  },
+    "Loading":{
+    "succes": "Added to the cart"
   }
 }

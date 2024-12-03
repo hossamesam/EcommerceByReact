@@ -7,6 +7,8 @@ import i18next from 'i18next';
 import Footer from '@components/common/Footer/Footer';
 import { useAppDispatch } from 'src/redux/hooks';
 import { actSetTheme } from 'src/redux/theme/themeSlice';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from '@redux/store';
 export default function MainLayout() {
     const dispatch = useAppDispatch()
 
@@ -17,10 +19,15 @@ export default function MainLayout() {
     }, [])
     return (
         <div dir={i18next.dir()} >
+
             <Header5 />
-            <Suspense fallback="loading" >
-                <Outlet />
-            </Suspense>
+            <PersistGate loading={null} persistor={persistor}>
+
+                <Suspense fallback="loading" >
+                    <Outlet />
+                </Suspense>
+            </PersistGate>
+
             <Footer />
 
             {/* <button onClick={() => {
@@ -49,9 +56,7 @@ export default function MainLayout() {
 }
 function customFn(e) {
     const color = e.target.value
-    console.log('====================================');
-    console.log(document.querySelector(`[Data-theme= "custom"]`));
-    console.log('====================================');
+
     document.getElementById("gg").style.backgroundColor = color
     document.querySelector(`[Data-theme="custom"]`).style.setProperty('--header', color)
 }

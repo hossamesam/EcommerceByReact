@@ -22,6 +22,7 @@ const router = createBrowserRouter(
         children: [{
             index: true,
             element: <Home />,
+
         },
         {
             path: "/Aboutus",
@@ -76,7 +77,6 @@ const router = createBrowserRouter(
         {
             path: "/Categories/:id",
             loader: ({ params }) => {
-                console.log(typeof (params.id))
 
                 if (typeof params.id !== "string" || !/^[a-z]+$/i.test(params.id)) { throw new Response("badReques", { statusText: "category not found", status: 400 }) }
                 return true

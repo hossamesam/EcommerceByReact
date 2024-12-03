@@ -13,10 +13,9 @@ function GoogleOAuth() {
                     width="1000px"
                     size='large'
                     text='signin_with'
-                    onSuccess={(credentialResponse:any) => {
-                        console.log(credentialResponse.credential);
+                    onSuccess={(credentialResponse: any) => {
                         axios.post(`${import.meta.env.VITE_BaseUrl}/api/authenticate/google`, credentialResponse)
-                            .then((req) => { console.log(req) })
+                            .then((req) => { console.log("req: ", req) })
                             .catch((err) => { err })
                     }}
                     onError={() => {

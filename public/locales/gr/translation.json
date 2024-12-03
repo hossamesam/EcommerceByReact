@@ -54,5 +54,8 @@
       "payment": "Verfügbare Zahlungsmethoden",
       "contactUs": "Kontaktieren Sie uns"
     }
+  },
+  "Loading": {
+    "succes": "Zum Warenkorb hinzugefügt"
   }
 }
