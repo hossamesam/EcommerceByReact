@@ -55,7 +55,15 @@
       "contactUs": "Contact Us"
     }
   },
-    "Loading":{
+  "Loading": {
     "succes": "Added to the cart"
+  },
+  "ShoppingCart": {
+    "title": "Shopping Cart",
+    "SubTotal": "Sub Total",
+    "DeliveryCharge": "Delivery Charge",
+    "Total": "Total",
+    "AddCouponCode": "Add Coupon Code",
+    "ContinuetoPayment": "Continue to Payment"
   }
 }

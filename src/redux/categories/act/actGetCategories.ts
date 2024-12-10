@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { TCategories, getAllItemstype } from '@typesTs/eCommerceTypes';
+import { TCategories, TgetAllItemstype } from '@typesTs/eCommerceTypes';
 import axios from 'axios';
 
 
-const actGetCategories = createAsyncThunk('categories/actGetCategories', async ({ page, sizeItems }: getAllItemstype, thunkAPI) => {
+const actGetCategories = createAsyncThunk('categories/actGetCategories', async ({ page, sizeItems }: TgetAllItemstype, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         const response = await axios.get<TCategories>(`${import.meta.env.VITE_BaseUrl}/api/categories`);

@@ -57,5 +57,13 @@
   },
   "Loading": {
     "succes": "Zum Warenkorb hinzugefügt"
+  },
+  "ShoppingCart": {
+    "title": "Einkaufswagen",
+    "SubTotal": "Gesamtpreis der Produkte",
+    "DeliveryCharge": "Lieferkosten",
+    "Total": "Gesamtsumme",
+    "AddCouponCode": "Gutscheincode hinzufügen",
+    "ContinuetoPayment": "Zahlungsverfolgung"
   }
 }

@@ -21,8 +21,6 @@ function Cart({
 }: TCart) {
   const dispatch = useAppDispatch()
 
-  const totalBaskets = useAppSelector(state => state.cart.totalBaskets)
-
   const [isBtnDisabled, setIsBtnDisabled] = useState(false)
 
 

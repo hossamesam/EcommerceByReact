@@ -12,6 +12,7 @@ import Babys_store from '@components/eCommerce/_store/babys_store'
 import Register from '@pages/register'
 import Products from '@pages/Products'
 import Designsystem from '@pages/designsystem'
+import CartShop from '@pages/CartShop'
 
 const router = createBrowserRouter(
     [{
@@ -31,6 +32,10 @@ const router = createBrowserRouter(
         {
             path: "Categories",
             element: <Categories />,
+        },
+        {
+            path: "CartShop",
+            element: <CartShop />,
         },
         {
             path: "/Categories/:prefix/page:id",

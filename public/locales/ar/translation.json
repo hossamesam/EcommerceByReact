@@ -55,7 +55,15 @@
       "contactUs": "اتصل بنا"
     }
   },
-  "Loading":{
+  "Loading": {
     "succes": "تمت الاضافة للسلة"
+  },
+  "ShoppingCart": {
+    "title":"عربة التسوق",
+    "SubTotal": "اجمالي سعر المنتجات",
+    "DeliveryCharge": "سعر التوصيل",
+    "Total": "الاجمالي",
+    "AddCouponCode": "أضف كوبون خصم",
+    "ContinuetoPayment": "متابعة الدفع"
   }
 }

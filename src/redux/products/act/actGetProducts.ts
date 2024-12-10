@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TProduct, getAllItemstype } from '@typesTs/eCommerceTypes';
+import { TProduct, TgetAllItemstype } from '@typesTs/eCommerceTypes';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page, sizeItems }: getAllItemstype, thunkAPI) => {
+const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page, sizeItems }: TgetAllItemstype, thunkAPI) => {
 
     const { rejectWithValue } = thunkAPI;
     try {

@@ -13,7 +13,7 @@ export type TCart = {
   CurrencyType?: string;
   description: string;
 };
-export type getAllItemstype = {
+export type TgetAllItemstype = {
   sizeItems: number;
   page: number;
 };

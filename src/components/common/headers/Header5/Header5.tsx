@@ -70,7 +70,7 @@ function Header5({ t }: any) {
                         </Link >
                     </li>
                     <li className={li}>
-                        <Link to="/cart" >
+                        <Link to="/CartShop" >
                             <span className='relative'>
                                 <span className={`${btnclicked && pop} ${basketNumber}`}>{itemsCartBasket}</span>
                                 <ShoppingCart size={28} />
