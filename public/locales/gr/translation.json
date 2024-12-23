@@ -23,6 +23,7 @@
     "signUp-email": "Oder per E-Mail",
     "email": "E-Mail",
     "password": "Passwort",
+    "password_confirm": "Passwort bestätigen",
     "have-account": "Sie haben bereits ein Konto",
     "Login-here": "Melden Sie sich direkt an",
     "username": "Benutzername",

@@ -30,7 +30,7 @@ export default function Slider1() {
                                         <span>SHY PORTRAIT</span>
                                     </li>
                                     <li>
-                                        <span>SKATEBOARD FACE</span>
+                                        <span> EShop</span>
                                     </li>
                                 </ul>
                             </div>

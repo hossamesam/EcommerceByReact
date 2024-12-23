@@ -6,128 +6,157 @@ import { withTranslation } from "react-i18next";
 import i18next from "i18next";
 import GoogleOAuth from "@components/Auth/GoogleOAuth";
 import { TFormData, signupSchema } from '@typesTs/registerTypes';
-
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "@assets/lottieFiles/groovyWalk.json";
+import successSumit2 from "@assets/lottieFiles/successSumit2";
+import LoadingFormPage from "@assets/lottieFiles/LoadingFormPage";
+import formAnimy2 from "@assets/lottieFiles/formAnimy2.json";
+import Form from '@components/Form';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
+import { useEffect } from 'react';
+import { actAuthRegister } from '@redux/auth/authSlice';
 
 
 function Register({ t }: any) {
 
-
+    const emailonBluerHandler = (e: React.FocusEvent<HTMLInputElement>) => console.log(e)
+    const { loading } = useAppSelector((state) => state.authSlice)
     const { handleSubmit, register, formState: { errors, isSubmitting, isDirty, isValid } } =
         useForm<TFormData>({
             mode: 'onChange',
             resolver: zodResolver(signupSchema)
         })
 
+    const dispatch = useAppDispatch()
 
 
-    async function onSubmit({ email, firstName, lastName, login, password }: TFormData) {
-        const users = { email, firstName, lastName, login, password, langKey: i18next.language }
+    async function onSubmit({ email, firstName, lastName, password, login }: TFormData) {
 
+        dispatch(actAuthRegister({ email, firstName, lastName, password, login }))
 
-        axios.post(`${import.meta.env.VITE_BaseUrl}/api/register`, users,
-            {
-                'headers': {
-                    'Content-Type': 'application/json;charset=UTF-8'
-                }
-            }
-        )
-            // .then(() => window.location.replace("/Categories"))
-            .catch((err) => console.log("err :", err))
     }
-
 
     return (
         <div className=''>
             {/* <!-- component --> */}
-            <div className="flex  mb-40">
-                {/* <!-- Left Pane --> */}
-                <div className="hidden my-auto   lg:flex items-center justify-center flex-1  text-black">
-                    <div className="max-w-md  text-center ">
-                        <RegisterIcon />
-                    </div>
-                </div>
+            <div className="flex   bg-[var(--primary)] text-sm">
+
                 {/* <!-- Right Pane --> */}
-                <div className="w-full bg-[var(--bg)] lg:w-1/2 flex items-center justify-center" dir={i18next.dir()}>
-                    <div className="max-w-md w-full p-6 ">
-                        <h1 className="text-3xl font-semibold mb-6  text-black text-center">{t("SignUp.signup")}</h1>
-                        <h1 className="text-md font-semibold mb-6 text-black text-center">{t("SignUp.join")}</h1>
-                        <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
-                            <div className="w-full lg:w-1/1 mb-2 lg:mb-0">
-                                <GoogleOAuth />
-                            </div>
-                        </div>
-                        <div className="mt-4  text-md font-semibold text-black text-center">
-                            <p>{t("SignUp.signUp-email")}</p>
-                        </div>
+                <div dir={i18next.dir()} className=' w-full flex px-24 py-4 flex-col justify-center items-center  max-lg:w-full gap-4 ' >
+                    <div className=" max-w-md w-96 ">
+                        <h1 className=" text-3xl font-semibold py-4 text-center">{t("SignUp.Login")}</h1>
+
                         <form
                             onSubmit={handleSubmit(onSubmit)}
                             method="POST"
-                            className="space-y-4 h-[640px]"
+                            className="flex flex-col gap-4   "
                         >
                             {/* <!-- Your form elements go here --> */}
-                            <div>
-                                <label htmlFor="login" className=" block text-sm font-medium text-gray-700">{t("SignUp.Login")}</label>
+                            {/* <div>
+                                <label htmlFor="login">{t("SignUp.Login")}</label>
                                 <input {...register("login")}
                                     id="login"
                                     name="login"
-                                    className="bg-[white] border-[black] mt-1  p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                    className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
                                 {errors.login && (<p className=" mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.login.message}</span></p>)}
-                            </div>
+                            </div> */}
 
-                            <div>
-                                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">{t("SignUp.firstName")}</label>
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28 ' htmlFor="firstName" >{t("SignUp.firstName")}</label>
                                 <input {...register("firstName")}
                                     id="firstName"
                                     name="firstName"
-                                    className="bg-[white] border-[black] mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                    className=" bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
                                 {errors.firstName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.firstName.message}</span></p>)}
                             </div>
 
-                            <div>
-                                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">{t("SignUp.lastName")}</label>
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28' htmlFor="lastName" >{t("SignUp.lastName")}</label>
                                 <input {...register("lastName")}
                                     id="lastName"
                                     name="lastName"
-                                    className="bg-[white] border-[black] mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                    className="bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
                                 {errors.lastName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.lastName.message}</span></p>)}
                             </div>
 
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">{t("SignUp.email")}</label>
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28' htmlFor="login" >{t("SignUp.username")}</label>
+                                <input {...register("login")}
+                                    id="login"
+                                    name="login"
+                                    className="bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                {errors.login && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.login.message}</span></p>)}
+                            </div>
+
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28' htmlFor="email" >{t("SignUp.email")}</label>
                                 <input {...register("email", { required: true })}
                                     id="email"
                                     name="email"
-                                    className="bg-[white] border-[black] mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                    onBlur={emailonBluerHandler}
+                                    className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
                                 {errors.email && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.email.message}</span></p>)}
                             </div>
 
-                            <div>
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-700">{t("SignUp.password")}</label>
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28' htmlFor="password" >{t("SignUp.password")}</label>
                                 <input  {...register("password")}
                                     id="password"
                                     name="password"
                                     type="password"
-                                    className="bg-[white] border-[black] mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
+                                    className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
                                 {errors.password && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.password.message}</span></p>)}
                             </div>
 
+                            <div className='flex items-center justify-center'>
+                                <label className='min-w-28' htmlFor="password_repeat" >{t("SignUp.password_confirm")}</label>
+                                <input
+                                    {...register("password_repeat")}
+                                    type="password"
+                                    className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+                                />
+                                {errors.password_repeat && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.password_repeat.message}</span></p>)}
+                            </div>
                             <button
                                 type="submit"
                                 disabled={!isDirty || !isValid || isSubmitting}
-                                className="w-full bg-slate-400 text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
+                                className="w-full bg-[var(--header)] text-[var(--textHeader)] p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
                             >
                                 {t("SignUp.signup")}
                             </button>
-
                         </form>
-                        <div className="mt-4 text-sm text-gray-600 text-center">
-                            {/* <p>{props.haveAccount} <span onClick={() => { dispatch(signNow()) }} className="text-black hover:underline  hover:cursor-pointer font-semibold ">{props.LoginHere}</span> */}
-                            {/* </p> */}
+
+
+                        <div className='my-8'>
+                            <h1 className="textCenterLine ">
+                                <span className=' text-md font-semibold  text-center'>
+                                    {t("SignUp.join")}
+                                </span>
+                            </h1>
+                            <div className="mt-8 flex flex-col lg:flex-row items-center justify-between">
+                                <div className="w-full lg:w-1/1 mb-2 lg:mb-0">
+                                    <GoogleOAuth />
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
+                {/* <!-- Left Pane --> */}
+
             </div>
         </div >
     )
 }
 export default withTranslation()(Register);
+
+// <div className="hidden my-auto   lg:flex items-center justify-center flex-1  text-black">
+//     <div className="max-w-md  text-center ">
+//         {/* <RegisterIcon /> */}
+
+//         {/* <Lottie style={{ width: "30vw" }}  animationData={formAnimy} /> */}
+//         {loading === "pending" && <Lottie animationData={LoadingFormPage} />}
+//         {loading === "idle" && <Lottie animationData={formAnimy2} />}
+//         {loading === "succeeded" && <Lottie animationData={successSumit2} />}
+//     </div>
+// </div>

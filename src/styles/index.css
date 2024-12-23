@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lalezar&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Lalezar&family=Marhey:wght@300..700&family=Readex+Pro:wght,HEXP@160..700,0..100&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,8 +13,8 @@
   --textColor: #000000 !important;
   --bg: #e8f0f1 !important;
   --bgCart: white !important;
-  --input: #dadada !important;
-  --primary: rgba(255, 255, 255, 0.821) !important;
+  --input: white !important;
+  --primary: #e8f0f1 !important;
   --hoverA: rgb(0, 145, 255) !important;
 }
 
@@ -24,8 +24,8 @@
   --textColor: #000000 !important;
   --bg: #3a3b32 !important;
   --bgCart: white !important;
-  --input: #554545 !important;
-  --primary: rgba(242, 242, 242, 0.684) !important;
+  --input: white !important;
+  --primary: #e8f0f1 !important;
   --hoverA: rgb(0, 145, 255) !important;
 }
 
@@ -35,14 +35,15 @@
   --textColor: #000000;
   --bg: #e8f0f1;
   --input: white;
-  --primary: #dadada;
+  --primary: #e8f0f1 !important;
   --hoverA: var(--textColor);
-  --FontFamile: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --FontFamile: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
 }
 
 :root {
-
-  font-family: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Marhey", "Lalezar", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -53,5 +54,42 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+/* .textCenterLine {
+  overflow: hidden;
+  text-align: center;
+}
+
+.textCenterLine::before,
+.textCenterLine::after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.textCenterLine::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.textCenterLine::after {
+  left: 0.5em;
+  margin-right: -50%;
+} */
+.textCenterLine {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.textCenterLine span {
+  background: var(--primary);
+  padding: 0 10px;
 }

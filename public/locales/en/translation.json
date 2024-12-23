@@ -23,6 +23,7 @@
     "signUp-email": "Or with email",
     "email": "Email",
     "password": "Password",
+    "password_confirm": "Confirm password",
     "have-account": "Already have an account",
     "Login-here": "Log in directly",
     "username": "Username",

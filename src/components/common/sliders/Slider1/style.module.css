@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-
+:root {
+    --XBorderRadius: 0px;
+}
 
 .a {
     cursor: pointer;
@@ -11,7 +13,7 @@
 
 .section {
     position: relative;
-    width: 100%;
+    width: 100vw;
     display: block;
 }
 
@@ -20,7 +22,7 @@
 }
 
 .oveHide {
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .padding-tb {
@@ -176,25 +178,25 @@
 .checkbox.first:checked~ul li:nth-child(1) {
     opacity: 1;
     pointer-events: auto;
-    border-radius: 16px;
+    border-radius: var(--XBorderRadius);
 }
 
 .checkbox.scnd:checked~ul li:nth-child(2) {
     opacity: 1;
     pointer-events: auto;
-    border-radius: 16px;
+    border-radius: var(--XBorderRadius);
 }
 
 .checkbox.thrd:checked~ul li:nth-child(3) {
     opacity: 1;
     pointer-events: auto;
-    border-radius: 16px;
+    border-radius: var(--XBorderRadius);
 }
 
 .checkbox.foth:checked~ul li:nth-child(4) {
     opacity: 1;
     pointer-events: auto;
-    border-radius: 16px;
+    border-radius: var(--XBorderRadius);
 }
 
 .logo {

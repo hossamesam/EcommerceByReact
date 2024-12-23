@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "./dropbtn.module.css";
 const { dropbtn, dropup, dropup_content } = style
-export default function Dropbtn2() {
+export default function Dropbtn3() {
     return (
         <div className={dropup}>
             <button className={dropbtn}>Dropup</button>

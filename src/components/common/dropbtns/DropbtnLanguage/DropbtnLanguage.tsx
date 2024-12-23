@@ -5,7 +5,7 @@ import i18next, { changeLanguage } from 'i18next';
 import { Flag_Egypt, Flag_Australia, Flag_Germany } from '@assets/Flags.jsx';
 import style from "./dropbtn.module.css";
 const { dropbtn, dropup, dropup_content } = style
-function Dropbtn1({ t }: any) {
+function DropbtnLanguage({ t }: any) {
     useEffect(() => {
         document.getElementById(i18next.language)?.setAttribute("disabled", "true")
     }, [])
@@ -18,7 +18,7 @@ function Dropbtn1({ t }: any) {
                 {t("Header.lng")}
 
             </button>
-            <div id="myDropdown" className={dropup_content}>
+            <div id="myDropdown" className={dropup_content} >
                 <button id='ar' className='w-full flex justify-between items-between ' type="button" onClick={() => changeLanguageFn("ar")}>
                     العربية
                     <span><Flag_Egypt /></span>
@@ -27,7 +27,7 @@ function Dropbtn1({ t }: any) {
                     <span> english</span>
                     <span><Flag_Australia /></span>
                 </button>
-                <button id='gr' className='w-full flex justify-between items-between' type="button" onClick={() => changeLanguageFn("gr")}>
+                <button id='gr' className='w-full  flex justify-between items-between' type="button" onClick={() => changeLanguageFn("gr")}>
                     <span> Germany</span>
                     <span><Flag_Germany /></span>
                 </button>
@@ -36,7 +36,7 @@ function Dropbtn1({ t }: any) {
         </div>
     )
 }
-export default withTranslation()(Dropbtn1);
+export default withTranslation()(DropbtnLanguage);
 
 
 function changeLanguageFn(lang: any) {

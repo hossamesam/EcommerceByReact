@@ -2,6 +2,7 @@ import categories from './categories/categoriesSlice'
 import Products from './products/productsSlice'
 import theme from './theme/themeSlice'
 import cart from './cart/cartSlice'
+import authSlice from './auth/authSlice'
 import {
     persistStore,
     persistReducer,
@@ -36,7 +37,7 @@ import storage from "redux-persist/lib/storage"; // defaults to localStorage for
 const rootpersistConfig = {
     key: 'cart',
     storage,
-    debug: true,
+    // debug: true,
     whitelist: ['items']
 }
 
@@ -44,6 +45,7 @@ const rootReducer = combineReducers({
     categories,
     Products,
     theme,
+    authSlice,
 
     cart: persistReducer(rootpersistConfig, cart),
 })

@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu } from '../../svg/Menu/Menu'
-import { CircleUserRound, Globe, Home, ShoppingCart } from 'lucide-react';
-import { SearchForDesktop, SearchForMobile } from '@components/common/searchs';
+import { ShoppingCart } from 'lucide-react';
+import { SearchForDesktop } from '@components/common/searchs';
 import { withTranslation } from 'react-i18next';
-import i18next, { changeLanguage } from 'i18next';
-import { withNamespaces } from 'react-i18next';
-
-import { SwitchLanguage } from '@util/getLanguage';
 import { Link } from 'react-router-dom';
-import Dropbtn1 from '@components/common/dropbtns/dropbtn1/dropbtn1';
-
+import i18next from 'i18next';
 import style from "./style.module.css";
 import { useAppSelector } from '@redux/hooks';
 import { totalBaskets } from '@redux/cart/cartSlice';
-import { compose } from '@reduxjs/toolkit';
-import { connect } from 'react-redux';
+
+import { DropbtnLanguage, DropbtnRegister } from '@components/common/dropbtns';
 const { search, header, logo, nav, ul, li, pop, basketNumber } = style
 
 function Header5({ t }: any) {
@@ -54,21 +49,14 @@ function Header5({ t }: any) {
             <nav className={nav}>
                 <ul className={ul}>
                     <li className={li}>
-                        <Dropbtn1 />
+                        <DropbtnLanguage />
                     </li>
-                    {/* <li className={li}>
-                            <button type="button" onClick={() => changeLanguage(SwitchLanguage())}>
-                                <span><Globe size={28} /></span>
-                                {t("Header.lng")}
-                            </button>
-                        </li> */}
-                    <li className={li}>
-                        <Link to="/register" >
-                            <span><CircleUserRound size={28} /></span>
-                            {t("Header.register")}
 
-                        </Link >
+                    <li className={li}>
+                        <DropbtnRegister />
                     </li>
+
+
                     <li className={li}>
                         <Link to="/CartShop" >
                             <span className='relative'>
@@ -87,4 +75,4 @@ function Header5({ t }: any) {
     )
 }
 
-      export default withTranslation()(Header5);
+export default withTranslation()(Header5);

@@ -16,16 +16,18 @@ export type TCart = {
 export type TgetAllItemstype = {
   sizeItems: number;
   page: number;
+  id: any;
 };
 export type TCategories = {
-  "id": String,
-  "code": String,
-  "nameAr": String,
+  "id": string,
+  "code": string,
+  "nameAr": string,
+  "guid": string,
   "nameTranslate": {
-    "en": String
+    "en": string
   },
   "attributes": [],
-  "level": Number
+  "level": number
 }
 
 export type TProduct = {

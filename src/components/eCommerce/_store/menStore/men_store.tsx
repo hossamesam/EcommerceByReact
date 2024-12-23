@@ -40,6 +40,8 @@ export default function Men_store() {
               {Data.map((item) => {
                 return <Cart
                   {...item}
+                  key={item.id}
+                  id={item.id}
                   backgroundImage={`${import.meta.env.VITE_BaseUrl}/api/attachments/public/${item.attachments[0].guid}`}
                   Price={item.sellPrice}
                   Text={language === 'en' ? item.nameTranslate.en : item.nameAr}

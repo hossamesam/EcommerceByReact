@@ -8,7 +8,6 @@ import { TCart } from '@typesTs/eCommerceTypes'
 import style from './style.module.css'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { addToCart } from '@redux/cart/cartSlice'
-import { useSelector } from 'react-redux'
 import { Sucess } from '@components/common/loading'
 const { cart, img, text, info, price, icon, Sdescription } = style
 function Cart({
@@ -17,7 +16,7 @@ function Cart({
   Price = 350,
   CurrencyType = "EGP",
   description = "description",
-  id
+  id = 0
 }: TCart) {
   const dispatch = useAppDispatch()
 
@@ -45,7 +44,7 @@ function Cart({
   return (
     <div className={cart} >
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className={img}>
-        <span onClick={() => setFavorite()} className='absolute left-1 top-1'><Myfav /></span>
+        <span onClick={() => setFavorite(id)} className='absolute left-1 top-1'><Myfav /></span>
       </div>
       <div className="min-h-[140px] ">
         <p className={text}>
