@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from '../../svg/Menu/Menu'
+import { Menu } from '../../Menu/menu/Menu'
 
 export default function Header2() {
     return (

@@ -1,12 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { TCategories, TgetAllItemstype } from '@typesTs/eCommerceTypes';
+import { TFormDataLogin } from '@typesTs/logInTypes';
 import axios from 'axios';
 
 
-const actGetCategories = createAsyncThunk('categories/actGetCategories', async ({ page, sizeItems }: TgetAllItemstype, thunkAPI) => {
+const actAuthLogin = createAsyncThunk('Auth/actAuthLogin ', async ({ email, password, rememberMe }: TFormDataLogin, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
+    const login = {
+        "username": email,
+        "password": password,
+        "rememberMe": rememberMe,
+    }
     try {
-        const response = await axios.get<TCategories>(`${import.meta.env.VITE_BaseUrl}/api/categories`);
+        const response = await axios.post(`${import.meta.env.VITE_BaseUrl}/api/authenticate`, login);
         return response.data;
     } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -17,5 +22,5 @@ const actGetCategories = createAsyncThunk('categories/actGetCategories', async (
     }
 
 })
-export default actGetCategories
+export default actAuthLogin
 

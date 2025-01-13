@@ -12,7 +12,7 @@ function Categories({ t }: any) {
     const { Data, error, loading } = useAppSelector((state) => state.categories);
 
     useEffect(() => {
-        dispatch(actGetCategories({ page: 0, sizeItems: 1 }))
+        dispatch(actGetCategories())
     }, [dispatch])
 
     return (
@@ -27,7 +27,9 @@ function Categories({ t }: any) {
         '>
             {Data.map((e, index) => {
                 return <div>
-                    <Categorie Text={(i18next.language == "ar" ? e.nameAr : e.nameTranslate.en).toString()} link={`Categories/${e.id}/0`}
+                    <Categorie
+                        Text={(i18next.language == "ar" ? e.nameAr : e.nameTranslate.en).toString()}
+                        link={`Categories/${e.id}/0`}
                         backgroundImage={`${import.meta.env.VITE_BaseUrl}/api/attachments/public/${e.guid}`}
                         // backgroundImage='/src/assets/setimg.png'
                         backgroundPosition='inherit'

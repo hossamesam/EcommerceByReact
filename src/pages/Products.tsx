@@ -31,15 +31,21 @@ function Products() {
       <div>
         <div className='flex bg-[var(--bg)]'>
           <Filter />
-          <div className='flex flex-col mt-8 w-full '>
-            <div className='grid grid-cols-4 gap-4 justify-center items-center
-      mx-2
-      max-sm:grid-cols-2
-      max-md:grid-cols-2
-      max-lg:grid-cols-3
-      max-xl:grid-cols-4
-      2xl:grid-cols-5
-      '>
+          <div className='flex  mt-8 w-full flex-col gap-5'>
+            <div
+              className='grid
+            grid-cols-3
+            gap-4
+            justify-center
+            items-center
+            mx-2
+            max-sm:grid-cols-1
+            max-md:grid-cols-1
+            max-lg:grid-cols-2
+            max-xl:grid-cols-3
+            2xl:grid-cols-4
+            '
+            >
               {Data.map((item) => {
                 return <Cart
                   {...item}

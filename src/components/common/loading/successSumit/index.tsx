@@ -6,16 +6,23 @@ import Home from '@pages/Home';
 
 function index() {
 
-    setTimeout(() => {
-        return (
-            <div>
-                <Lottie animationData={successSumit} />
+    // setTimeout(() => {
+    //     return (
+    //         <div>
+    //             <Lottie animationData={successSumit} />
+    //         </div>
+    //     )
+    // }, 3000);
+    // return (<Home />)
+
+    return <>
+        <div className='w-full py-8 flex-col flex justify-center items-center'>
+            <div className='w-1/2 '>
+                <Lottie loop={{ "Type": false }} animationData={successSumit} />
             </div>
-        )
-    }, 3000);
-    return (<Home />)
-
-
+            <span>شكرا لك سيتم ارسال ايميل التنشيط علي الخاص</span>
+        </div>
+    </>
 
 
 }

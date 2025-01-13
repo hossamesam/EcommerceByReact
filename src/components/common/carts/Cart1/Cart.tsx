@@ -46,7 +46,7 @@ function Cart({
       <div style={{ backgroundImage: `url(${backgroundImage})` }} className={img}>
         <span onClick={() => setFavorite(id)} className='absolute left-1 top-1'><Myfav /></span>
       </div>
-      <div className="min-h-[140px] ">
+      <div className="min-h-[240px] ">
         <p className={text}>
           {Text}
         </p>

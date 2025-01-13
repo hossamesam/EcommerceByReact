@@ -1,5 +1,6 @@
 import Sucess from "./sucess";
 import LoadingInfo from "./LoadingInfo";
-import LoadingPage from "./LoadingPage";
+import LoadingShopingPage from "./LoadingShopingPage";
+import SuccessSumit from "./SuccessSumit";
 
-export { Sucess, LoadingInfo, LoadingPage }
+export { Sucess, LoadingInfo, LoadingShopingPage, SuccessSumit }

@@ -1,41 +1,40 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { lazy } from 'react'
-import Form from '@components/Form'
+import Login from '@pages/Login'
+import App from '@pages/App'
+import { SuccessSumit } from '@components/common/loading'
+import ProtectedRoute from '@components/Auth/ProtectedRoute'
 
+// const SuccessSumit = lazy(() => import('@components/common/loading'))
 const CartShop = lazy(() => import('@pages/CartShop'))
 const Home = lazy(() => import('@pages/Home'))
 const Categories = lazy(() => import('@pages/categories'))
 const Aboutus = lazy(() => import('@pages/Aboutus'))
-const Woman_store = lazy(() => import('@components/eCommerce/_store/woman_store'))
-const Men_store = lazy(() => import('@components/eCommerce/_store/menStore/men_store'))
 const MainLayout = lazy(() => import('@layouts/MainLayout/MainLayout'))
-const App = lazy(() => import('@pages/App'))
 const Error = lazy(() => import('@pages/Error'))
-const Shoes_store = lazy(() => import('@components/eCommerce/_store/shoes_store'))
-const Babys_store = lazy(() => import('@components/eCommerce/_store/babys_store'))
 const Register = lazy(() => import('@pages/register'))
 const Products = lazy(() => import('@pages/Products'))
 const Designsystem = lazy(() => import('@pages/designsystem'))
+const DashBoard = lazy(() => import('@pages/DashBoard'))
+const CreateProduct = lazy(() => import('@pages/CreatProduct'))
+const Items = lazy(() => import('@pages/items'))
+
 
 const router = createBrowserRouter(
     [{
         path: "/",
         element: <MainLayout />,
         errorElement: <Error />,
-
         children: [{
             index: true,
             element: <Home />,
-
         },
+
         {
             path: "/Aboutus",
             element: <Aboutus />,
         },
-        // {
-        //     path: "Categories",
-        //     element: <Categories />,
-        // },
+
         {
             path: "CartShop",
             element: <CartShop />,
@@ -75,13 +74,43 @@ const router = createBrowserRouter(
             //     signal: request.signal,
             //   }),
         },
+        {
+            path: "/Login",
+            element: (
+                <Login />
+            ),
+        },
+        {
+            path: "/App",
+            element: (
+                <App />
+            )
+            ,
+        },
+        {
+            path: "/designsystem",
+            element: <Designsystem />,
+        },
+        {
+            path: "/SuccessSumit",
+            element: <SuccessSumit />,
+        },
+        {
+            path: "/DashBoard",
+            element: <DashBoard />,
+        },
 
+        {
+            path: "/items",
+            element: <Items />,
+        },
+        {
+            path: "/items/CreateProduct",
+            element: <CreateProduct />,
+        },
         ]
     }
-        , {
-        path: "/designsystem",
-        element: <Designsystem />,
-    },
+
     ]
 )
 

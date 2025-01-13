@@ -65,7 +65,7 @@ inputs.forEach((input, currentIndex) => {
         if (e.keyCode === 8) {
             e.preventDefault();
             input.value = "";
-            // console.log(input.value);
+
             toggleFilledClass(input);
             if (input.previousElementSibling) {
                 input.previousElementSibling.focus();

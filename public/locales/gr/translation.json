@@ -1,9 +1,11 @@
 {
+  "lcoale": "Deutsch",
   "TitleLogo": "EShop",
   "Header": {
     "lng": "Sprache",
     "search": "suchen",
     "register": "registrieren",
+    "logout": "Abmelden",
     "cart": "Einkaufen"
   },
   "category": {
@@ -17,6 +19,7 @@
   },
   "SignUp": {
     "signup": "Login",
+    "rememberMe": "Erinnere dich an mich",
     "Login": "Registrieren Sie einen neuen Benutzer",
     "join": "Treten Sie uns über Ihr Google-Konto bei",
     "signUp-google": "Melden Sie sich mit Google an",
@@ -28,7 +31,9 @@
     "Login-here": "Melden Sie sich direkt an",
     "username": "Benutzername",
     "firstName": "Vorname",
-    "lastName": "Nachname"
+    "lastName": "Nachname",
+    "error": "Passwort und E-Mail sind falsch",
+    "succes": "Effizienter Registrierungsprozess"
   },
   "Footer": {
     "aboutUs": "Über uns",
@@ -66,5 +71,22 @@
     "Total": "Gesamtsumme",
     "AddCouponCode": "Gutscheincode hinzufügen",
     "ContinuetoPayment": "Zahlungsverfolgung"
+  },
+  "createpage": {
+    "Title": "Neues Produkt hinzufügen",
+    "ProductType": "Produktart",
+    "ProductDetails": "Produktdetails",
+    "nameAr": "Produktname (arabisch)",
+    "EnternameAr": "Geben Sie den Produktnamen (arabisch) ein",
+    "nameEn": "Produktname (englisch)",
+    "EnternameEn": "Geben Sie den Produktname (englisch) ein",
+    "barcode": "Barcode",
+    "price": "Preis",
+    "descriptionAr": "Produktbeschreibung (arabisch)",
+    "descriptionEn": "Produktbeschreibung (englisch)",
+    "sizes": "Verfügbare Größen",
+    "cloros": "Verfügbare Farben",
+    "files": "Datei hinzufügen",
+    "policetranslation": "Wählen Sie eine Richtlinie"
   }
 }

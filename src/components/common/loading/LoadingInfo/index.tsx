@@ -12,7 +12,9 @@ type LoadingProps = {
 };
 function LoadingInfo({ status, error, children }: LoadingProps) {
     if (status === "pending" || status === "idle") {
-        return <div className={loader}></div>;
+        return <div className="h-screen">
+            <div className={loader}></div>
+        </div>
     }
     if (status === "failed") {
         return <div>لا يوجد منتجات</div>;

@@ -1,26 +1,35 @@
 import { Suspense, useEffect } from 'react'
-import { Header5 } from '@components/common/headers';
-
 import { Outlet } from 'react-router-dom';
+import { HeaderMain } from '@components/common/headers';
 import '../../i18n';
 import i18next from 'i18next';
 import Footer from '@components/common/Footer/Footer';
-import { useAppDispatch } from 'src/redux/hooks';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import { actSetTheme } from 'src/redux/theme/themeSlice';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor } from '@redux/store';
 export default function MainLayout() {
-    const dispatch = useAppDispatch()
+
+
+    const { theme } = useAppSelector(state => state.theme)
 
     useEffect(() => {
-        localStorage.getItem("theme") == "custom" && dispatch(actSetTheme({ theme: "custom" }))
-        localStorage.getItem("theme") == "dark" && document.querySelector("body")?.setAttribute("Data-theme", "dark")
-
-    }, [])
+        if (theme == "light") {
+            document.querySelector("body")?.setAttribute("Data-theme", "light")
+        }
+        else if (theme == "dark") {
+            document.querySelector("body")?.setAttribute("Data-theme", "dark")
+        }
+        else {
+            document.querySelector("body")?.setAttribute("Data-theme", "custom")
+            Object.keys(theme).map((e) => document.querySelector(`[Data-theme="custom"]`).style.setProperty(`--${e}`, theme[e]))
+        }
+    }, [theme])
+    
     return (
         <div dir={i18next.dir()} >
 
-            <Header5 />
+            <HeaderMain />
             <PersistGate loading={null} persistor={persistor}>
 
                 <Suspense fallback="loading" >
@@ -30,33 +39,6 @@ export default function MainLayout() {
 
             <Footer />
 
-            {/* <button onClick={() => {
-                console.log('====================================');
-                console.log(document.body);
-                console.log('====================================');
-                document.body.removeAttribute("Data-theme")
-                document.body.setAttribute("Data-theme", "light")
-            }} >
-                light
-            </button>
-            <br />
-            <button onClick={() => document.querySelector("body")?.setAttribute("Data-theme", "dark")}>
-                dark
-            </button>
-            <br />
-            <button onClick={() => document.querySelector("body")?.setAttribute("Data-theme", "custom")}>
-                custom
-            </button>
-            <input onChange={(e) => customFn(e)} type="color" id='colors' />
-            <div id='gg' className='w-24 h-24 bg-blue-500'></div> */}
-            {/* <SearchForMobile />
-            <ScrollPort1 /> */}
         </div >
     )
-}
-function customFn(e) {
-    const color = e.target.value
-
-    document.getElementById("gg").style.backgroundColor = color
-    document.querySelector(`[Data-theme="custom"]`).style.setProperty('--header', color)
 }

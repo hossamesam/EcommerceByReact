@@ -39,16 +39,6 @@ export const jwtDecote = createAsyncThunk(
             return { "Access": "", "token": "pending" }
         }
 
-        // try {
-        // } catch (error) {
-        //     console.log('==================decodedJwt==================');
-        //     console.log("error:", error);
-        //     console.log('==================decodedJwt==================');
-        //     return { "Access": "pending", "token": "pending" }
-        // }
-
-        // const state = thunkAPI.getState().HeaderSlice
-        // .sub
     })
 
 

@@ -3,7 +3,7 @@ import { Minus, Plus, Trash2 } from 'lucide-react'
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { actGetProductsShoppingCart, addToCart, decreaseCart, deleteFromCart } from '@redux/cart/cartSlice';
 import { withTranslation } from 'react-i18next';
-import { LoadingPage } from '@components/common/loading';
+import { LoadingShopingPage } from '@components/common/loading';
 import CartShopUI from '@components/eCommerce/CartShopUI';
 import CartShopTotalPrice from '@components/eCommerce/CartShopUI/CartShopTotalPrice';
 

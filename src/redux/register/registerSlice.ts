@@ -1,8 +1,10 @@
+import { actGetCategories } from '@redux/categories/categoriesSlice';
 import { createSlice } from '@reduxjs/toolkit'
+import { TCategories } from '@typesTs/eCommerceTypes';
 
 
 interface ICategoriesState {
-    Data:    
+    Data: TCategories[]
     loading: 'idle' | 'pending' | 'succeeded' | 'failed'
     error: string | null;
 }

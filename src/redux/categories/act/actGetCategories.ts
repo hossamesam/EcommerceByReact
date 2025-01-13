@@ -3,7 +3,9 @@ import { TCategories, TgetAllItemstype } from '@typesTs/eCommerceTypes';
 import axios from 'axios';
 
 
-const actGetCategories = createAsyncThunk('categories/actGetCategories', async ({ page, sizeItems }: TgetAllItemstype, thunkAPI) => {
+const actGetCategories = createAsyncThunk('categories/actGetCategories', async (
+    // { page, sizeItems }: TgetAllItemstype
+    _, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         const response = await axios.get<TCategories>(`${import.meta.env.VITE_BaseUrl}/api/categories`);

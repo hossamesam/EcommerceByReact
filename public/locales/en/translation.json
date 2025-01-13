@@ -1,9 +1,11 @@
 {
+  "lcoale": "english",
   "TitleLogo": "EShop",
   "Header": {
     "lng": "language",
     "search": "search",
     "register": "register",
+    "logout": "logout",
     "cart": "cart"
   },
   "category": {
@@ -17,6 +19,7 @@
   },
   "SignUp": {
     "signup": "Log in",
+    "rememberMe": "Remember me",
     "Login": "Register a new user",
     "join": "Join us via Google account",
     "signUp-google": "Sign Up with Google",
@@ -28,7 +31,9 @@
     "Login-here": "Log in directly",
     "username": "Username",
     "firstName": "First name",
-    "lastName": "Last name"
+    "lastName": "Last name",
+    "error": "Password or email are wrong",
+    "succes": "Efficient registration process"
   },
   "Footer": {
     "aboutUs": "About Us",
@@ -66,5 +71,22 @@
     "Total": "Total",
     "AddCouponCode": "Add Coupon Code",
     "ContinuetoPayment": "Continue to Payment"
+  },
+  "createpage": {
+    "Title": "Add New Product",
+    "ProductType": "Product Type",
+    "ProductDetails": "Product Details",
+    "nameAr": "Name in Arabic",
+    "EnternameAr": "Enter Product Name (in Arabic)",
+    "nameEn": "Name in English",
+    "EnternameEn": "Enter Product Name (in English)",
+    "barcode": "barcode",
+    "price": "price",
+    "descriptionAr": "description in Arabic",
+    "descriptionEn": "description in English",
+    "sizes": "sizes",
+    "cloros": "colors",
+    "files": "files",
+    "policetranslation": "Select a policy"
   }
 }

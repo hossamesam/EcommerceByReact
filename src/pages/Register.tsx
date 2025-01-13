@@ -1,26 +1,21 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from "react-hook-form"
-import axios from 'axios';
-import { RegisterIcon } from "@assets/SVGs";
 import { withTranslation } from "react-i18next";
 import i18next from "i18next";
 import GoogleOAuth from "@components/Auth/GoogleOAuth";
 import { TFormData, signupSchema } from '@typesTs/registerTypes';
-import Lottie from "lottie-react";
-import groovyWalkAnimation from "@assets/lottieFiles/groovyWalk.json";
-import successSumit2 from "@assets/lottieFiles/successSumit2";
-import LoadingFormPage from "@assets/lottieFiles/LoadingFormPage";
-import formAnimy2 from "@assets/lottieFiles/formAnimy2.json";
-import Form from '@components/Form';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { useEffect } from 'react';
 import { actAuthRegister } from '@redux/auth/authSlice';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Error1 from '@components/common/errors/error1/error1';
+import { useEffect } from 'react';
 
 
 function Register({ t }: any) {
+    const navigate = useNavigate()
 
     const emailonBluerHandler = (e: React.FocusEvent<HTMLInputElement>) => console.log(e)
-    const { loading } = useAppSelector((state) => state.authSlice)
+    const { error, loading, accessToken } = useAppSelector((state) => state.authSlice)
     const { handleSubmit, register, formState: { errors, isSubmitting, isDirty, isValid } } =
         useForm<TFormData>({
             mode: 'onChange',
@@ -31,9 +26,14 @@ function Register({ t }: any) {
 
 
     async function onSubmit({ email, firstName, lastName, password, login }: TFormData) {
-
         dispatch(actAuthRegister({ email, firstName, lastName, password, login }))
+            .unwrap()
+            .then(() => navigate("/SuccessSumit"))
+    }
 
+
+    if (accessToken) {
+        return <Error1 />
     }
 
     return (
@@ -67,8 +67,8 @@ function Register({ t }: any) {
                                     id="firstName"
                                     name="firstName"
                                     className=" bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-                                {errors.firstName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.firstName.message}</span></p>)}
                             </div>
+                            {errors.firstName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.firstName.message}</span></p>)}
 
                             <div className='flex items-center justify-center'>
                                 <label className='min-w-28' htmlFor="lastName" >{t("SignUp.lastName")}</label>
@@ -76,8 +76,8 @@ function Register({ t }: any) {
                                     id="lastName"
                                     name="lastName"
                                     className="bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-                                {errors.lastName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.lastName.message}</span></p>)}
                             </div>
+                            {errors.lastName && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.lastName.message}</span></p>)}
 
                             <div className='flex items-center justify-center'>
                                 <label className='min-w-28' htmlFor="login" >{t("SignUp.username")}</label>
@@ -85,8 +85,8 @@ function Register({ t }: any) {
                                     id="login"
                                     name="login"
                                     className="bg-[var(--input)] border-[black] mt-1 p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-                                {errors.login && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.login.message}</span></p>)}
                             </div>
+                            {errors.login && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.login.message}</span></p>)}
 
                             <div className='flex items-center justify-center'>
                                 <label className='min-w-28' htmlFor="email" >{t("SignUp.email")}</label>
@@ -95,8 +95,8 @@ function Register({ t }: any) {
                                     name="email"
                                     onBlur={emailonBluerHandler}
                                     className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-                                {errors.email && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.email.message}</span></p>)}
                             </div>
+                            {errors.email && (<p className="mt-2 ltr text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.email.message}</span></p>)}
 
                             <div className='flex items-center justify-center'>
                                 <label className='min-w-28' htmlFor="password" >{t("SignUp.password")}</label>
@@ -105,22 +105,22 @@ function Register({ t }: any) {
                                     name="password"
                                     type="password"
                                     className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300" />
-                                {errors.password && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.password.message}</span></p>)}
                             </div>
+                            {errors.password && (<p className="mt-2 ltr text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.password.message}</span></p>)}
 
                             <div className='flex items-center justify-center'>
                                 <label className='min-w-28' htmlFor="password_repeat" >{t("SignUp.password_confirm")}</label>
                                 <input
                                     {...register("password_repeat")}
                                     type="password"
-                                    className="bg-[var(--input)] border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+                                    className="bg-[var(--input)] ltr border-[black] mt-1  p-1 w-full border rounded-md focus:border-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                                 />
-                                {errors.password_repeat && (<p className="mt-2 text-sm text-red-600 dark:text-red-500"><span className="font-medium">{errors.password_repeat.message}</span></p>)}
                             </div>
+                            {errors.password_repeat && (<p className="mt-2 text-sm  text-red-600 dark:text-red-500"><span className="font-medium">{errors.password_repeat.message}</span></p>)}
                             <button
                                 type="submit"
                                 disabled={!isDirty || !isValid || isSubmitting}
-                                className="w-full bg-[var(--header)] text-[var(--textHeader)] p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
+                                className="w-full bg-[var(--header)] ltr text-[var(--textHeader)] p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
                             >
                                 {t("SignUp.signup")}
                             </button>

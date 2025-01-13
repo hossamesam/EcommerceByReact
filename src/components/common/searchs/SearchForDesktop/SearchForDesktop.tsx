@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from '../../svg/Menu/Menu'
+import { Menu } from '../../Menu/menu/Menu'
 import style from "./styles.module.css";
 import { withTranslation } from 'react-i18next';
 const { SearchGlobal, successSearch, search1, input } = style

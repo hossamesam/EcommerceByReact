@@ -14,8 +14,8 @@ export type TCart = {
   description: string;
 };
 export type TgetAllItemstype = {
-  sizeItems: number;
-  page: number;
+  sizeItems?: number;
+  page?: number;
   id: any;
 };
 export type TCategories = {
@@ -76,3 +76,25 @@ export type TFilterCategory =
 export type TFilterColor = { "id": string, "name": string, "code": string }
 
 export type TLoading = 'idle' | 'pending' | 'succeeded' | 'failed'
+
+export type TRGB = "/^#([0-9a-f]{3}|[0-9a-f]{6})$/i"
+
+export type TColors = {
+  code: TRGB,
+  id: string,
+  name: string,
+}
+
+export type Tsize = { name: string }
+
+export type TPolicies = {
+  "id": string,
+  "name": {
+    "ar": string
+  },
+  "description": {
+    "ar": string
+  },
+  "url": string,
+  "guid": string
+}

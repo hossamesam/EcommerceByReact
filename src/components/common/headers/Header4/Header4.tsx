@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu } from '../../svg/Menu/Menu'
+import { Menu } from '../../Menu/menu/Menu'
 import style from "./style.module.css";
 const { header, logo, login, cart, nav, ul, li } = style
 import { CircleUserRound, Globe, Home, ShoppingCart } from 'lucide-react';

@@ -1,10 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
-const actSetTheme = createAsyncThunk('theme/actSetTheme', async ({ VariableColors, theme = undefined }: { VariableColors?: any, theme?: "custom" | "dark" | "light" | undefined }, thunkAPI) => {
+const actSetTheme = createAsyncThunk('theme/actSetTheme', async ({ VariableColors, theme = undefined }: { VariableColors?: any, theme?: "custom" | "dark" | "light"  }, thunkAPI) => {
 
     try {
-        console.log("theme: ", theme);
         theme == "custom" && localStorage.setItem("theme", "custom");
 
         if (localStorage.getItem("theme") == "custom" || theme == "custom") {

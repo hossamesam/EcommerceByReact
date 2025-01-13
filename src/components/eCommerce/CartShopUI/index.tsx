@@ -1,4 +1,4 @@
-import { LoadingPage } from '@components/common/loading';
+import { LoadingShopingPage } from '@components/common/loading';
 import { actGetProductsShoppingCart, addToCart, decreaseCart, deleteFromCart } from '@redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { Minus, Plus, Trash2 } from 'lucide-react';
@@ -12,11 +12,10 @@ function CartShopUI() {
 
     useEffect(() => {
         dispatch(actGetProductsShoppingCart())
-        console.log("test");
     }, [])
 
     return (
-        <LoadingPage status={loading} >
+        <LoadingShopingPage status={loading} >
             <div className=" w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
                 {productFullInfo.map((data) => {
                     if (Object.keys(items).find(e => e == data.id)) {
@@ -72,7 +71,7 @@ function CartShopUI() {
                                         <Trash2 color='#f4f4f4' />
                                     </button>
                                 </div>
-                                
+
                             </div >
                         )
                     }
@@ -80,7 +79,7 @@ function CartShopUI() {
                 }
                 <CartShopTotalPrice />
             </div>
-        </LoadingPage>
+        </LoadingShopingPage>
 
     )
 }

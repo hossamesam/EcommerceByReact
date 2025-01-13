@@ -3,6 +3,7 @@ import Products from './products/productsSlice'
 import theme from './theme/themeSlice'
 import cart from './cart/cartSlice'
 import authSlice from './auth/authSlice'
+import filterSlice from './filters/filterSlice'
 import {
     persistStore,
     persistReducer,
@@ -15,6 +16,7 @@ import {
 } from "redux-persist";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import themeSlice from './theme/themeSlice'
 
 // //////////////
 // export const store = configureStore({
@@ -33,25 +35,44 @@ import storage from "redux-persist/lib/storage"; // defaults to localStorage for
 
 // export default store;
 // /////////////
+const rootPersistConfig = {
+    key: "root",
+    storage,
+    whitelist: ["cart", "auth"],
+};
 
-const rootpersistConfig = {
+const authPersistConfig = {
+    key: "auth",
+    storage,
+    whitelist: ["user", "accessToken"],
+};
+const cartPersistConfig = {
     key: 'cart',
     storage,
     // debug: true,
     whitelist: ['items']
 }
+const themePersistConfig = {
+    key: 'theme',
+    storage,
+    // debug: true,
+    whitelist: ['theme']
+}
 
 const rootReducer = combineReducers({
+    // authSlice,
+    authSlice: persistReducer(authPersistConfig, authSlice),
     categories,
     Products,
-    theme,
-    authSlice,
+    filterSlice,
+    theme: persistReducer(themePersistConfig, themeSlice),
+    cart: persistReducer(cartPersistConfig, cart),
 
-    cart: persistReducer(rootpersistConfig, cart),
 })
-// const persistedReducer = persistReducer(rootpersistConfig, rootReducer)
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
+
 const store = configureStore({
-    reducer: rootReducer,
+    reducer: persistedReducer,
 
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

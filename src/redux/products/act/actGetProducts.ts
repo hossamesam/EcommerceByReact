@@ -17,8 +17,6 @@ const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page
         );
 
         const Pagination = Math.ceil(response.headers.get("X-Total-Count") / sizeItems) as number
-        console.log("response:", response);
-
         return ({ data: response.data, Pagination: Pagination })
     } catch (error) {
         console.log("error: ", error);

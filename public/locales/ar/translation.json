@@ -1,9 +1,11 @@
 {
+  "lcoale": "arabic",
   "TitleLogo": "EShop",
   "Header": {
     "lng": "اللغة",
     "search": "بحث",
     "register": "تسجيل",
+    "logout": "تسجيل الخروج",
     "cart": "التسوق"
   },
   "category": {
@@ -17,6 +19,7 @@
   },
   "SignUp": {
     "signup": "تسجيل الدخول",
+    "rememberMe": "تذكر الدخول",
     "Login": " تسجيل مستخدم جديد",
     "join": "او انضم إلينا عبر",
     "signUp-google": "تسجيل الدخول عن طريق جوجل",
@@ -28,7 +31,9 @@
     "Login-here": "الدخول مباشرة",
     "username": "اسم المستخدم",
     "firstName": "الأسم الأول",
-    "lastName": "الأسم الأخير"
+    "lastName": "الأسم الأخير",
+    "error": "كلمة المرور او  البريد الإلكتروني  خطأ",
+    "succes": "تمت عملية التسجيل بنجاح"
   },
   "Footer": {
     "aboutUs": "نبذة عنا",
@@ -66,5 +71,22 @@
     "Total": "الاجمالي",
     "AddCouponCode": "أضف كوبون خصم",
     "ContinuetoPayment": "متابعة الدفع"
+  },
+  "createpage": {
+    "Title":"إضافة منتج جديد",
+    "ProductType": "نوع المنتج",
+    "ProductDetails": "تفاصيل المنتج",
+    "nameAr": "اسم المنتج (بالعربي)",
+    "EnternameAr": " ادخال اسم المنتج (بالعربي)",
+    "nameEn": "اسم المنتج (بالانجليزية)",
+    "EnternameEn": " ادخال اسم المنتج (بالانجليزية)",
+    "barcode": "باركود",
+    "price": "السعر",
+    "descriptionAr": "وصف المنتج (بالعربي)",
+    "descriptionEn": "وصف المنتج (بالانجليزية)",
+    "sizes": "الاحجام المتوفرة",
+    "cloros": "الالوان المتوفره",
+    "files": "اضافة ملف",
+    "policetranslation": "اختيار سياسة"
   }
 }
