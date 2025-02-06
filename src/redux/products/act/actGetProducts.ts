@@ -1,19 +1,28 @@
+import { RootState } from '@redux/store';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TProduct, TgetAllItemstype } from '@typesTs/eCommerceTypes';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page, sizeItems, id }: TgetAllItemstype, thunkAPI) => {
-
+    let quary
+    const { getState } = thunkAPI;
+    const { Products } = getState() as RootState
+     sizeItems = Products.PaginationCountList
+    if (id) {
+        quary = {
+            "category": {
+                id: id
+            }
+        }
+    }
+    else {
+        quary = {}
+    }
     const { rejectWithValue } = thunkAPI;
     try {
-        const response = await axios.post<TProduct>(`${import.meta.env.VITE_BaseUrl}/api/items/search?page=${page}&size=${sizeItems}&eagerload=true&category=${id}`
-            ,
-            {
-                category: {
-                    id: id
-                }
-            }
+        const response = await axios.post<TProduct>(`${import.meta.env.VITE_BaseUrl}/api/items/search?page=${page}&size=${sizeItems}&eagerload=true&category=${id}`,
+            quary
         );
 
         const Pagination = Math.ceil(response.headers.get("X-Total-Count") / sizeItems) as number

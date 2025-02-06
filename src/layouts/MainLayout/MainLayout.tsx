@@ -8,6 +8,10 @@ import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import { actSetTheme } from 'src/redux/theme/themeSlice';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor } from '@redux/store';
+import { Toaster } from 'sonner';
+import { Loading } from '@components/feedback';
+import { LoadingInfo } from '@components/common/loading';
+
 export default function MainLayout() {
 
 
@@ -25,19 +29,16 @@ export default function MainLayout() {
             Object.keys(theme).map((e) => document.querySelector(`[Data-theme="custom"]`).style.setProperty(`--${e}`, theme[e]))
         }
     }, [theme])
-    
+
     return (
         <div dir={i18next.dir()} >
-
             <HeaderMain />
-            <PersistGate loading={null} persistor={persistor}>
-
-                <Suspense fallback="loading" >
+            {/* <PersistGate loading={null} persistor={persistor}>
+                <Suspense fallback={<LoadingInfo status="idle" />} >
                     <Outlet />
                 </Suspense>
-            </PersistGate>
+            </PersistGate> */}
 
-            <Footer />
 
         </div >
     )

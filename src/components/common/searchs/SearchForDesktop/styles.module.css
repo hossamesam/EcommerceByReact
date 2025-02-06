@@ -5,7 +5,6 @@
 }
 
 .SearchGlobal {
-    height: 80px;
     font-weight: 500;
     font-size: 24px;
     display: flex;
@@ -16,7 +15,7 @@
 }
 
 .successSearch {
-    height: 50px;
+    height: 40px;
     margin: 0 10px;
     display: flex;
 }
@@ -24,7 +23,7 @@
 
 
 .search1 {
-    padding: 0 42px 0 42px;
+    padding: 0 38px 0 38px;
     color: var(--searchTextColor);
     background-color: var(--searchColor);
     font-weight: 500;
@@ -47,12 +46,12 @@
     font-family: 'Material Icons';
     content: '\e8b6';
     visibility: visible;
-    height: 40px;
-    weight: 40px;
+    height: 30px;
+    weight: 30px;
     display: flex;
     align-items: center;
     justify-items: center;
-    font-size: 32px;
+    font-size: 26px;
     color: rgb(0, 0, 0);
     position: absolute;
     z-index: 100;

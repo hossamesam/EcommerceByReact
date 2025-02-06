@@ -15,8 +15,7 @@ import BtnLogout from '@components/common/dropbtns/BtnLogout/BtnLogout';
 const { search, header, logo, nav, ul, li, pop, basketNumber } = style
 
 function HeaderMain({ t }: any) {
-
-    const dispatch = useAppDispatch()
+    const { accessToken } = useAppSelector(state => state.authSlice)
     const itemsCartBasket = useAppSelector(totalBaskets)
     const [btnclicked, setBtnclicked] = useState(false)
 
@@ -55,35 +54,33 @@ function HeaderMain({ t }: any) {
                         <DropbtnLanguage />
                     </li>
 
-                    <li className={li}>
-                        <DropbtnRegister />
-                    </li>
 
-                    <li className={li}>
-                        <BtnLogout />
-                    </li>
+                    {!accessToken &&
+                        <li className={li}>
+                            <DropbtnRegister />
+                        </li>
+                    }
+                    {accessToken &&
+                        <li className={li}>
+                            <BtnLogout />
+                        </li>
+                    }
 
-                    {/* <li className={li}>
-                        <Link to="/" onClick={() => { dispatch(restAuth()) }} >
-                            <span className='relative'>
-                                <LogOut size={28} />
-                            </span>
-                            {t("Header.logout")}
-                        </Link >
-                    </li> */}
+
 
 
                     <li className={li}>
                         <Link to="/CartShop" >
                             <span className='relative'>
                                 <span className={`${btnclicked && pop} ${basketNumber}`}>{itemsCartBasket}</span>
-                                <ShoppingCart size={28} />
+                                <ShoppingCart size={20} />
                             </span>
                             {t("Header.cart")}
                         </Link >
                     </li>
                     <li>
-                        <Menu /></li>
+                        <Menu />
+                    </li>
                 </ul>
             </nav>
 

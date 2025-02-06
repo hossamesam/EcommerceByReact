@@ -2,8 +2,8 @@ import * as z from "zod";
 
 
 export const createTypes = z.object({
-    barcode: z.string(),
-    nameAr: z.string(),
+    barcode: z.string().min(1, { message: "barcode required" }),
+    nameAr: z.string().min(1, { message: "name required" }),
     nameTranslate: z.object({ en: z.string() }),
     description: z.string(),
     descriptionTranslate: z.object({ en: z.string() }),
@@ -21,7 +21,6 @@ export const createTypes = z.object({
     // )
     ,
     category: z.any(),
-
     sizes: z.any(),
     policies: z.any(),
     attachments: z.any(),

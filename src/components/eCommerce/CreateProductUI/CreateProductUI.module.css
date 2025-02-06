@@ -1,3 +1,7 @@
+* {
+  font-size: 20px;
+}
+
 .H1 {
   display: flex;
   justify-content: center;
@@ -16,6 +20,7 @@
 }
 
 .FormStyledivs {
+  position: relative;
   display: inline-flex;
   margin: 20px 0;
   width: 100%;
@@ -26,7 +31,6 @@
 
 .FormStyledivlabel {
   width: 20rem;
-  font-size: 28px;
   /* width: 400px; */
 }
 

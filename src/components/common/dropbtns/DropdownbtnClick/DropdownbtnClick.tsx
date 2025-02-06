@@ -17,28 +17,25 @@ function DropdownbtnClick({ children, title, scent_title, Icon, Navigate, arrowS
     const [arrow, setarrow] = useState(false)
     const Nav = useNavigate()
     return (
-        <div className='bg-slate-800 px-4 '
+        <div className='bg-zinc-800 px-4 '
             onClick={() => !!Navigate && Nav(Navigate)}
         >
-            <div data-arrowShow={arrowShow} onClick={() => setarrow(e => !e)} className={dropdown_content} >
+            <div data-arrowshow={arrowShow} onClick={() => setarrow(e => !e)} className={dropdown_content} >
 
                 <div className={IconStyle}>
                     {arrow ? <ChevronRight /> : <ChevronDown />}
                 </div>
 
-                <div className='flex justify-center items-center gap-2 s'>
-                    <h2>
-                        {title}
-                        <br />
-                        <span className='font-extralight'>{scent_title}</span>
+                <div className='flex justify-center items-center gap-2 relative'>
+                    <h2 className='flex flex-col justify-end items-end  '>
+                        <span>{title}</span>
                     </h2>
-                    <div
-                    // className={dropdown}
-                    >
+                    <div>
                         {Icon}
                     </div>
                 </div>
 
+                <span className='absolute text-[14px] bottom-[5px] left-[37px] font-thin   '>{scent_title}</span>
             </div>
             <div
                 // id='show'

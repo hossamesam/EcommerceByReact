@@ -9,7 +9,6 @@ import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import Pagination from '@components/Pagination';
 import { useParams } from 'react-router-dom';
 import { Loading } from '@components/feedback';
-import { Sucess } from '@components/common/loading';
 
 function Products() {
 

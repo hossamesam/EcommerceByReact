@@ -15,7 +15,7 @@ function DropbtnRegister({ t }: any) {
     else return (
         <div className={dropup}>
             <Link to="/register" className={dropbtn} type="button" >
-                <span><CircleUserRound size={28} /></span>
+                <span><CircleUserRound size={20} /></span>
                 {/* <span>	&nbsp;</span> */}
                 {t("Header.register")}
             </Link>

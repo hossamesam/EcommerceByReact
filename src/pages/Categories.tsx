@@ -1,4 +1,5 @@
 import Categorie from '@components/eCommerce/Category/Categorie';
+import { useGetcategories } from '@hooks/FiltersHook';
 import i18next from 'i18next';
 import React, { useEffect, useState } from 'react'
 import { withTranslation } from 'react-i18next';
@@ -8,15 +9,13 @@ import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 
 
 function Categories({ t }: any) {
-    const dispatch = useAppDispatch()
-    const { Data, error, loading } = useAppSelector((state) => state.categories);
+    const { categories, error, loading } = useGetcategories()
 
-    useEffect(() => {
-        dispatch(actGetCategories())
-    }, [dispatch])
 
     return (
-        <div className='grid
+        <div
+            key={"categories"}
+            className='grid
         mx-auto
         gap-2
         sm:grid-cols-2
@@ -25,8 +24,10 @@ function Categories({ t }: any) {
         xl:grid-cols-2
         2xl:grid-cols-2
         '>
-            {Data.map((e, index) => {
-                return <div>
+            {categories.map((e, index) => {
+                return <div
+                    key={index}
+                >
                     <Categorie
                         Text={(i18next.language == "ar" ? e.nameAr : e.nameTranslate.en).toString()}
                         link={`Categories/${e.id}/0`}

@@ -5,12 +5,12 @@ import { act, useEffect } from 'react'
 
 export default function useGetcategories() {
   const Dispatch = useAppDispatch()
-  const { Data } = useAppSelector(state => state.categories)
+  const { Data, error, loading } = useAppSelector(state => state.categories)
 
   useEffect(() => {
     Dispatch(actGetCategories())
   }, [])
 
-  return { categories: Data }
+  return { categories: Data, error, loading }
 
 }

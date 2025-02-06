@@ -18,8 +18,8 @@
 .dropup_content {
   display: none;
   position: absolute;
-  top: 60px;
-  right: -50px;
+  top: 40px;
+  right: -30px;
   background-color: var(--textColor);
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -33,9 +33,9 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--textColor);
-  width: 270px;
+  width: 180px;
   padding: 5px 15px;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .dropup_content .Link_bt:hover {

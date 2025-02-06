@@ -12,11 +12,11 @@
   padding: 20px 0;
 }
 
-.dropdown_content[data-arrowShow=false] .IconStyle {
+.dropdown_content[data-arrowshow=false] .IconStyle {
   visibility: hidden
 }
 
-.dropdown_content[data-arrowShow=false]~.navbar {
+.dropdown_content[data-arrowshow=false]~.navbar {
   display: none;
   visibility: hidden;
 }
@@ -84,6 +84,7 @@
     height: 0px;
   }
 }
+
 .selectStyle {
   width: 100%;
   padding: 0 10px;

@@ -88,5 +88,10 @@
     "cloros": "colors",
     "files": "files",
     "policetranslation": "Select a policy"
+  },
+  "toast": {
+    "error": "An error occurred",
+    "success": "Operation completed successfully",
+    "successlogin": "Login operation completed successfully"
   }
 }

@@ -16,7 +16,7 @@ export type TCart = {
 export type TgetAllItemstype = {
   sizeItems?: number;
   page?: number;
-  id: any;
+  id?: any;
 };
 export type TCategories = {
   "id": string,

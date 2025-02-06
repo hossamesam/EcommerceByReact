@@ -6,9 +6,9 @@ const { slide, loader } = style
 
 
 type LoadingProps = {
-    status: TLoading;
+    status?: TLoading;
     error?: null | string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 };
 function LoadingInfo({ status, error, children }: LoadingProps) {
     if (status === "pending" || status === "idle") {

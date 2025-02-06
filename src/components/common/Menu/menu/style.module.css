@@ -1,8 +1,8 @@
 /* From Uiverse.io by Cevorob */
 .burger {
   position: relative;
-  width: 40px;
-  height: 28px;
+  width: 30px;
+  height: 20px;
   background: transparent;
   cursor: pointer;
   display: block;
@@ -55,7 +55,7 @@
 
 .burger input:checked~span:nth-of-type(3) {
   transform: rotate(-45deg);
-  top: 28px;
+  top: 21px;
   left: 5px;
 }
 
@@ -87,7 +87,7 @@
 
 
 
-.sidenav div a {
+/* .sidenav div a {
   width: 450px;
   padding: 20px 0 0 20px;
   text-decoration: none;
@@ -95,7 +95,7 @@
   color: #ff0202;
   display: block;
   transition: 0.3s;
-}
+} */
 
 .sidenav a:hover {
   color: #00ff6e;
@@ -111,10 +111,17 @@
 }
 
 .xx {
-  opacity: 10%;
+  opacity: 20%;
   background-color: #0e0e0e;
 }
 
 .xx:hover {
   cursor: pointer;
+}
+
+.childLinks {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }

@@ -11,6 +11,8 @@ import { actpostItemSlice } from '@redux/createItem/createItemSlice'
 import Select from 'react-select';
 import UploadImage from '@components/UploadImage/UploadImage'
 import { useEffect, useRef } from 'react'
+import { Toaster, toast } from 'sonner';
+import { LucideAArrowDown, icons } from 'lucide-react';
 
 const { FormStyle, H1, FormStyledivs, FormStyledivtextarea,
     FormStyledivlabel, FormStyledivinput, selectStyle } = style
@@ -32,18 +34,15 @@ function CreateProductUI({ t }: any) {
     const ref = useRef()
 
     const dispatch = useAppDispatch()
-    function onSubmit({
-        barcode, category, description,
-        descriptionTranslate, nameAr, nameTranslate, policies,
-        sellPrice, colors, sizes, attachments }
-        : Tcreate) {
+    function onSubmit({ barcode, category, description, descriptionTranslate, nameAr, nameTranslate, policies, sellPrice, colors, sizes, attachments }: Tcreate) {
+        console.log("Sda");
+
 
         attachments = ref.current
         const colorsID = colors.map((e: any) => { return { id: e.value } })
         const policiesID = policies.map((e: any) => { return { id: e.value } })
         const sizesNmaes = sizes.map((e: any) => e.value)
         const categoryID = { id: category.value }
-
         dispatch(actpostItemSlice({
             barcode,
             description,
@@ -54,7 +53,14 @@ function CreateProductUI({ t }: any) {
             sizes: sizesNmaes,
             sellPrice,
             attachments
-        }))
+        })).then(() => {
+            return toast.success(t('toast.success'))
+        }).catch(() => {
+            return toast.error(t('toast.error'))
+        })
+
+
+
     }
 
 
@@ -66,8 +72,10 @@ function CreateProductUI({ t }: any) {
                 className={FormStyle}>
                 <div className={FormStyledivs}>
                     <label className={FormStyledivlabel}>{t("createpage.barcode")}</label>
-                    <input {...register("barcode")} className={FormStyledivinput} placeholder={t("createpage.barcode")} type="text" />
+                    <input  {...register("barcode")} className={FormStyledivinput} placeholder={t("createpage.barcode")} type="text" />
+                    {errors.barcode && (<span className="absolute -bottom-6 left-0 mt-2 ltr text-sm text-red-600 dark:text-red-500">{errors.barcode?.message}</span>)}
                 </div>
+
                 <div className={FormStyledivs}>
                     <label className={FormStyledivlabel}>{t("createpage.nameAr")}</label>
                     <input  {...register("nameAr")} className={FormStyledivinput} placeholder={t("createpage.EnternameAr")} type="text" />
@@ -149,7 +157,6 @@ function CreateProductUI({ t }: any) {
                                 onChange={((value) => field.onChange(value))}
                                 components={animatedComponents}
                                 closeMenuOnSelect={false}
-
                             />
                         )}
                     />
@@ -169,34 +176,36 @@ function CreateProductUI({ t }: any) {
                 <button
                     type="submit"
                     disabled={!isDirty || !isValid || isSubmitting}
-                    className="w-full bg-[var(--header)] text-[var(--textHeader)] p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
+                    className=" mt-2 text-[20px] bg-[var(--header)] text-[var(--textHeader)] p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 hover:cursor-pointer"
                 >
                     {t("createpage.Title")}
                 </button>
+                <Toaster
+                    duration={5000}
+                    gap={35}
+                    richColors
+                    closeButton
+                    position={'bottom-right'}
+                    toastOptions={{
 
+                        unstyled: true,
+                        style: {
+                            right: "10px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            textAlign: "center",
+                            borderRadius: "5px",
+                            padding: "0 20px",
+                            height: "3em",
+                            width: "15em",
+                            border: "2px solid rgba(150,200,150,1)"
+                        },
+                    }}
+                />
             </form>
-
-        </div>
+        </div >
     )
 }
 
 export default withTranslation()(CreateProductUI)
-
-{/* <div className={FormStyledivs}>
-                    <label className={FormStyledivlabel}>{t("createpage.policetranslation")}</label>
-                    <select {...register("policies")} className={selectStyle} >
-                        {Policie.map((e) => <>
-                            <option defaultValue={e.id} value={e.id}>
-                                {e.name.ar}
-                            </option>
-                            <option className='font-thin text-xs' disabled>{e.description.ar}</option>
-                        </>)
-                        }
-                    </select>
-                </div> */}
-{/* <div className={FormStyledivs}>
-                    <label className={FormStyledivlabel}>{t("createpage.ProductType")}</label>
-                    <select {...register("category.id")} className={selectStyle} >
-                        {categories.map((e) => <option defaultValue={e.id} value={e.id}>{e.nameAr}</option>)}
-                    </select>
-                </div> */}

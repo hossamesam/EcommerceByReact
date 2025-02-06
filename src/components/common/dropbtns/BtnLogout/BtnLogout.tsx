@@ -14,7 +14,7 @@ function BtnLogout({ t }: any) {
 
             <Link to="./" onClick={() => dispatch(restAuth())}  >
                 <span >
-                    <LogOut size={28} />
+                    <LogOut size={20} />
                 </span>
                 {t("Header.logout")}
             </Link >

@@ -88,5 +88,10 @@
     "cloros": "Verfügbare Farben",
     "files": "Datei hinzufügen",
     "policetranslation": "Wählen Sie eine Richtlinie"
+  },
+  "toast": {
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Vorgang erfolgreich abgeschlossen",
+    "successlogin": "Anmeldevorgang erfolgreich abgeschlossen"
   }
 }

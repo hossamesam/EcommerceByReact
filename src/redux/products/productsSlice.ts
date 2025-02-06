@@ -2,19 +2,21 @@ import { createSlice } from '@reduxjs/toolkit'
 import { TLoading, TProduct } from '@typesTs/eCommerceTypes';
 import actGetProducts from './act/actGetProducts';
 import actGetProductsByid from './act/actGetProductsByid';
-
+// import { PaginationCount, PaginationCountList } from './selectors'
 
 interface ICategoriesState {
     Data: TProduct[]
     DataOfItem: TProduct[]
     PaginationCount: number
+    PaginationCountList: number
     loading: TLoading;
     error: string | null;
 }
 const initialState: ICategoriesState = {
     Data: [],
     DataOfItem: [],
-    PaginationCount: 0,
+    PaginationCount: 5,
+    PaginationCountList: 0,
     loading: 'idle',
     error: 'null',
 }
@@ -24,7 +26,11 @@ const initialState: ICategoriesState = {
 export const productsSlice = createSlice({
     name: 'Products',
     initialState,
-    reducers: {},
+    reducers: {
+        SetPaginationCountList: (state, action) => {
+            state.PaginationCountList = action.payload
+        },
+    },
     extraReducers:
         (builder) => {
             builder
@@ -47,7 +53,7 @@ export const productsSlice = createSlice({
                         state.error = action.payload;
                     }
                 })
-            ////////
+
             builder
                 .addCase(actGetProductsByid.pending, (state) => {
                     state.error = null;
@@ -62,7 +68,10 @@ export const productsSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export { actGetProducts, actGetProductsByid }
-// export const { actGetCategories } = categoriesSlice.actions
+export {
+    actGetProducts, actGetProductsByid,
+    // PaginationCount, PaginationCountList
+}
 
+export const { SetPaginationCountList } = productsSlice.actions
 export default productsSlice.reducer

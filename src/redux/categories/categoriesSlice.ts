@@ -31,6 +31,7 @@ export const categoriesSlice = createSlice({
 
                 state.loading = "succeeded";
                 state.Data = action.payload
+                
             })
         builder
             .addCase(actGetCategories.rejected, (state, action) => {

@@ -13,7 +13,7 @@ function DropbtnLanguage({ t }: any) {
     return (
         <div className={dropup}>
             <button className={dropbtn} type="button" >
-                <span><Globe size={28} /></span>
+                <span><Globe size={20} /></span>
                 {/* <span>	&nbsp;</span> */}
                 {t("Header.lng")}
 

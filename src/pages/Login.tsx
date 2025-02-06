@@ -95,30 +95,6 @@ function Login({ t }: any) {
                                 {t("SignUp.Login")}
                             </Link>
                         </div>
-                        <Toaster
-                            duration={50000}
-                            gap={35}
-                            richColors
-                            closeButton
-                            position={'bottom-right'}
-                            toastOptions={{
-                                unstyled: true,
-                                style: {
-                                    position: "absolute",
-                                    right: "10px",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    textAlign: "center",
-                                    borderRadius: "5px",
-                                    padding: "0 20px",
-                                    height: "50px",
-                                    width: "400px",
-                                    border: "2px solid rgba(150,200,150,1)"
-                                },
-                            }}
-                        />
-                        <button onClick={() => toast.success(t('SignUp.succes'))}>test</button>
 
 
 

@@ -4,20 +4,23 @@ import Login from '@pages/Login'
 import App from '@pages/App'
 import { SuccessSumit } from '@components/common/loading'
 import ProtectedRoute from '@components/Auth/ProtectedRoute'
+import MainLayout from '@layouts/MainLayout/MainLayout'
+// import Products from '@pages/Products'
 
 // const SuccessSumit = lazy(() => import('@components/common/loading'))
 const CartShop = lazy(() => import('@pages/CartShop'))
 const Home = lazy(() => import('@pages/Home'))
 const Categories = lazy(() => import('@pages/categories'))
 const Aboutus = lazy(() => import('@pages/Aboutus'))
-const MainLayout = lazy(() => import('@layouts/MainLayout/MainLayout'))
+// const MainLayout = lazy(() => import('@layouts/MainLayout/MainLayout'))
 const Error = lazy(() => import('@pages/Error'))
 const Register = lazy(() => import('@pages/register'))
 const Products = lazy(() => import('@pages/Products'))
 const Designsystem = lazy(() => import('@pages/designsystem'))
 const DashBoard = lazy(() => import('@pages/DashBoard'))
 const CreateProduct = lazy(() => import('@pages/CreatProduct'))
-const Items = lazy(() => import('@pages/items'))
+const Items = lazy(() => import('@pages/Items'))
+const Addcolor = lazy(() => import('@pages/Addcolor'))
 
 
 const router = createBrowserRouter(
@@ -36,7 +39,7 @@ const router = createBrowserRouter(
         },
 
         {
-            path: "CartShop",
+            path: "/CartShop",
             element: <CartShop />,
         },
         {
@@ -101,12 +104,16 @@ const router = createBrowserRouter(
         },
 
         {
-            path: "/items",
+            path: "/items/:id/:prefix",
             element: <Items />,
         },
         {
             path: "/items/CreateProduct",
             element: <CreateProduct />,
+        },
+        {
+            path: "/addcolor",
+            element: <Addcolor />,
         },
         ]
     }

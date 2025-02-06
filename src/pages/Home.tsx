@@ -4,7 +4,7 @@ import Categories from './categories'
 
 function Home() {
     return (
-        <div className="flex flex-col gap-4" >
+        <div >
             {/* <div
                 style={{
                     "textShadow": "-1px 1px 0 #000,1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000",

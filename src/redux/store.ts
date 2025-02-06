@@ -1,5 +1,5 @@
 import categories from './categories/categoriesSlice'
-import Products from './products/productsSlice'
+import Products, { productsSlice } from './products/productsSlice'
 import theme from './theme/themeSlice'
 import cart from './cart/cartSlice'
 import authSlice from './auth/authSlice'
@@ -58,12 +58,18 @@ const themePersistConfig = {
     // debug: true,
     whitelist: ['theme']
 }
+const ProductsPersistConfig = {
+    key: 'Products',
+    storage,
+    // debug: true,
+    whitelist: ['PaginationCount', 'PaginationCountList']
+}
 
 const rootReducer = combineReducers({
     // authSlice,
     authSlice: persistReducer(authPersistConfig, authSlice),
     categories,
-    Products,
+    Products: persistReducer(ProductsPersistConfig, productsSlice),
     filterSlice,
     theme: persistReducer(themePersistConfig, themeSlice),
     cart: persistReducer(cartPersistConfig, cart),
@@ -77,7 +83,6 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         }),

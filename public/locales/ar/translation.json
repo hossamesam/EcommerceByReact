@@ -73,7 +73,7 @@
     "ContinuetoPayment": "متابعة الدفع"
   },
   "createpage": {
-    "Title":"إضافة منتج جديد",
+    "Title": "إضافة منتج جديد",
     "ProductType": "نوع المنتج",
     "ProductDetails": "تفاصيل المنتج",
     "nameAr": "اسم المنتج (بالعربي)",
@@ -88,5 +88,10 @@
     "cloros": "الالوان المتوفره",
     "files": "اضافة ملف",
     "policetranslation": "اختيار سياسة"
+  },
+  "toast": {
+    "error": "حدث خطأ ما",
+    "success": "تمت العملية بنجاح",
+    "successlogin": "تمت عملية التسجيل بنجاح"
   }
 }

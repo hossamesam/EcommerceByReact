@@ -4,7 +4,7 @@
   justify-self: center;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
+  width: 300px;
   text-align: end;
   gap: 10px;
   cursor: pointer;
@@ -12,11 +12,11 @@
   padding: 20px 0;
 }
 
-.dropdown_content[data-arrowShow=false] .IconStyle {
+.dropdown_content[data-arrowshow=false] .IconStyle {
   visibility: hidden
 }
 
-.dropdown_content[data-arrowShow=false]~.navbar {
+.dropdown_content[data-arrowshow=false]~.navbar {
   display: none;
   visibility: hidden;
 }
@@ -45,6 +45,7 @@
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
+
 }
 
 /* .navbar[id="show"] {
