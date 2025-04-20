@@ -5,24 +5,30 @@ import axios from 'axios';
 
 
 const actGetPolicie = createAsyncThunk('filter/actGetPolicie', async (_, thunkAPI) => {
-    const { getState } = thunkAPI;
+    const { getState, rejectWithValue, fulfillWithValue } = thunkAPI;
     const { authSlice } = getState() as RootState
+    if (!authSlice.accessToken) {
 
-    try {
-
-        const request: TPolicies[] = (await axios.get(`${import.meta.env.VITE_BaseUrl}/api/policies`,
-            {
-                "headers": {
-                    "Authorization": `Bearer ${authSlice.accessToken}`,
-                    'Content-Type': `multipart/form-data `,
-                }
-            }
-        )).data
-
-        return request
+        return fulfillWithValue([])
     }
-    catch (error) {
-        return error
+    else {
+
+        try {
+
+            const request: TPolicies[] = (await axios.get(`${import.meta.env.VITE_BaseUrl}/api/policies`,
+                {
+                    "headers": {
+                        "Authorization": `Bearer ${authSlice.accessToken}`,
+                        // 'Content-Type': `multipart/form-data `,
+                    }
+                }
+            )).data
+
+            return request
+        }
+        catch (error) {
+            return error
+        }
     }
 
 })

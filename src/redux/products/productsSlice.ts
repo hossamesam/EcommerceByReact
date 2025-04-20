@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { TLoading, TProduct } from '@typesTs/eCommerceTypes';
 import actGetProducts from './act/actGetProducts';
 import actGetProductsByid from './act/actGetProductsByid';
-// import { PaginationCount, PaginationCountList } from './selectors'
+import { PaginationCount, PaginationCountList } from './selectors'
 
 interface ICategoriesState {
     Data: TProduct[]
@@ -16,7 +16,7 @@ const initialState: ICategoriesState = {
     Data: [],
     DataOfItem: [],
     PaginationCount: 5,
-    PaginationCountList: 0,
+    PaginationCountList: 5,
     loading: 'idle',
     error: 'null',
 }
@@ -70,7 +70,7 @@ export const productsSlice = createSlice({
 // Action creators are generated for each case reducer function
 export {
     actGetProducts, actGetProductsByid,
-    // PaginationCount, PaginationCountList
+    PaginationCount, PaginationCountList
 }
 
 export const { SetPaginationCountList } = productsSlice.actions

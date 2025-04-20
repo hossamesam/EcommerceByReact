@@ -33,11 +33,12 @@ export default function MainLayout() {
     return (
         <div dir={i18next.dir()} >
             <HeaderMain />
-            {/* <PersistGate loading={null} persistor={persistor}>
+            <PersistGate loading={null} persistor={persistor}>
                 <Suspense fallback={<LoadingInfo status="idle" />} >
                     <Outlet />
                 </Suspense>
-            </PersistGate> */}
+            </PersistGate>
+            <Footer />
 
 
         </div >

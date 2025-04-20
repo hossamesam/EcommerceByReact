@@ -6,7 +6,7 @@ import { actSetTheme, actSetTheme2, themeSlice } from 'src/redux/theme/themeSlic
 import { Link, useNavigate } from 'react-router-dom';
 import style from './style.module.css'
 import DropdownbtnClick from '@components/common/dropbtns/DropdownbtnClick/DropdownbtnClick';
-import { ContactRoundIcon, Diamond, DiamondPlus, LayoutDashboard, List, Package, PanelsLeftBottom, SwatchBook } from 'lucide-react';
+import { ContactRoundIcon, Diamond, DiamondPlus, LayoutDashboard, List, Package, PanelsLeftBottom, ScrollText, Settings, SwatchBook } from 'lucide-react';
 
 const { burger, sidenav, xx, mySidenav, bgside, childLinks } = style
 
@@ -30,22 +30,28 @@ export function Menu() {
                     <hr />
                     <DropdownbtnClick arrowShow={false} Icon={<LayoutDashboard size={25} />} title={"Dashboard"} Navigate='/DashBoard' />
                     <hr />
-
+                    <DropdownbtnClick Icon={<Settings size={25} />} title={"settings"} >
+                        <div className='flex flex-col items-end justify-center border-l-2  border-red-200'>
+                            <DropdownbtnClick arrowShow={false} Icon={<SwatchBook size={25} />} title={"Create color"} Navigate='/Createcolor' />
+                            <DropdownbtnClick arrowShow={false} Icon={<ScrollText size={25} />} title={"Create policy"} Navigate='/Createpolicy' />
+                        </div>
+                    </DropdownbtnClick>
+                    <hr />
                     <DropdownbtnClick Icon={<Package size={25} />} title={"items"}  >
-                        <div className='flex flex-col w-full gap-4 items-end justify-center  mx-4 p-2 border-l-2  border-red-200'>
-                            <Link to="/items/1/0" className={childLinks}>
+                        <div className='flex flex-col items-end justify-center border-l-2  border-red-200'>
+                            {/* <div className='flex flex-col w-full gap-4 items-end justify-center  mx-4 p-2 border-l-2  border-red-200'> */}
+                            <DropdownbtnClick arrowShow={false} Icon={<List size={25} />} title={"Product List"} Navigate='/items/1/0' />
+                            <DropdownbtnClick arrowShow={false} Icon={<DiamondPlus size={25} />} title={"Add New Product "} Navigate='/items/CreateProduct' />
+                            {/* <Link to="/items/1/0" className={childLinks}>
                                 <h3>Product List</h3>
                                 <span><List /></span>
                             </Link>
                             <Link to="/items/CreateProduct" className={childLinks}>
                                 <h3>Add New Product</h3>
                                 <span><DiamondPlus /></span>
-                            </Link>
-
+                            </Link> */}
                         </div>
                     </DropdownbtnClick>
-                    <hr />
-                    <DropdownbtnClick arrowShow={false} Icon={<SwatchBook size={25} />} title={"Add color"} Navigate='/addcolor' />
                     <hr />
                     <DropdownbtnClick
                         title={"Theme Mode"}

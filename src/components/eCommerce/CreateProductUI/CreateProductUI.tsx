@@ -35,9 +35,6 @@ function CreateProductUI({ t }: any) {
 
     const dispatch = useAppDispatch()
     function onSubmit({ barcode, category, description, descriptionTranslate, nameAr, nameTranslate, policies, sellPrice, colors, sizes, attachments }: Tcreate) {
-        console.log("Sda");
-
-
         attachments = ref.current
         const colorsID = colors.map((e: any) => { return { id: e.value } })
         const policiesID = policies.map((e: any) => { return { id: e.value } })

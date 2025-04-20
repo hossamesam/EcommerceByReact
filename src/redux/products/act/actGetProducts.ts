@@ -8,7 +8,7 @@ const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page
     let quary
     const { getState } = thunkAPI;
     const { Products } = getState() as RootState
-     sizeItems = Products.PaginationCountList
+
     if (id) {
         quary = {
             "category": {
@@ -26,6 +26,8 @@ const actGetProducts = createAsyncThunk('Products/actGetProducts', async ({ page
         );
 
         const Pagination = Math.ceil(response.headers.get("X-Total-Count") / sizeItems) as number
+
+
         return ({ data: response.data, Pagination: Pagination })
     } catch (error) {
         console.log("error: ", error);

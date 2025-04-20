@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import Login from '@pages/Login'
 import App from '@pages/App'
-import { SuccessSumit } from '@components/common/loading'
+import { LoadingInfo, SuccessSumit } from '@components/common/loading'
 import ProtectedRoute from '@components/Auth/ProtectedRoute'
 import MainLayout from '@layouts/MainLayout/MainLayout'
 // import Products from '@pages/Products'
@@ -15,12 +15,16 @@ const Aboutus = lazy(() => import('@pages/Aboutus'))
 // const MainLayout = lazy(() => import('@layouts/MainLayout/MainLayout'))
 const Error = lazy(() => import('@pages/Error'))
 const Register = lazy(() => import('@pages/register'))
-const Products = lazy(() => import('@pages/Products'))
+// const Products = lazy(() => import('@pages/Products'))
+import Products from '@pages/Products'
 const Designsystem = lazy(() => import('@pages/designsystem'))
 const DashBoard = lazy(() => import('@pages/DashBoard'))
 const CreateProduct = lazy(() => import('@pages/CreatProduct'))
-const Items = lazy(() => import('@pages/Items'))
-const Addcolor = lazy(() => import('@pages/Addcolor'))
+import Items from '@pages/Items'
+// const Items = lazy(() => import('@pages/Items'))
+import Createpolicy from '@pages/Createpolicy'
+import Createcolor from '@pages/createcolor'
+// const createcolor = lazy(() => import('@pages/createcolor'))
 
 
 const router = createBrowserRouter(
@@ -41,7 +45,10 @@ const router = createBrowserRouter(
         {
             path: "/CartShop",
             element: <CartShop />,
-        },
+            }, {
+            path: "/DashBoard",
+            element: <DashBoard />,
+            },
         {
             path: "/Categories/:id/:prefix",
             element: <Products />,
@@ -105,15 +112,20 @@ const router = createBrowserRouter(
 
         {
             path: "/items/:id/:prefix",
-            element: <Items />,
+            element: <Items />
+            ,
         },
         {
             path: "/items/CreateProduct",
             element: <CreateProduct />,
         },
         {
-            path: "/addcolor",
-            element: <Addcolor />,
+            path: "/createcolor",
+            element: <Createcolor />,
+        },
+        {
+            path: "/Createpolicy",
+            element: <Createpolicy />,
         },
         ]
     }

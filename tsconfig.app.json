@@ -16,6 +16,7 @@
     /* Absolute path imports */
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],

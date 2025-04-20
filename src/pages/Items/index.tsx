@@ -19,20 +19,11 @@ const Items = () => {
 
     const dispatch = useAppDispatch()
     const PaginationCountList2 = useAppSelector(PaginationCountList)
-    // dispatch(PaginationCountList)
-    // const orders = Data
+
 
     useEffect(() => {
         setOrders(Data)
-
     }, [Data])
-    useEffect(() => {
-        console.log('====================================');
-        console.log(PaginationCountList2);
-        console.log('====================================');
-
-    }, [PaginationCountList2])
-
 
 
 
@@ -74,9 +65,17 @@ const Items = () => {
             statusFilter === "All" || order.id === statusFilter;
         return matchesSearch && matchesStatus;
     });
+    const changecount = async (e: any) => {
+
+        await dispatch(SetPaginationCountList(Number(e.target.value)))
+        return (
+            window.document.location.replace("/items/1/0")
+        )
+
+    }
 
     return (
-        <div className="p-6 mx-auto">
+        <div dir="rtl" className="p-6 mx-auto ">
             <div className="mb-6 flex  items-start md:items-center gap-4">
 
                 <Link
@@ -98,8 +97,7 @@ const Items = () => {
                 <select
                     className="px-4 h-[40px] bg-[var(--header)] text-[var(--textHeader)]    border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     onChange={(e) => {
-                        dispatch(SetPaginationCountList(Number(e.target.value)))
-                        // dispatch(actGetProducts({ page: 1, sizeItems: Number(2) }))
+                        changecount(e)
                     }}
                 >
                     <option >اختار العدد</option>

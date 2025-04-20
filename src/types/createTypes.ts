@@ -36,3 +36,23 @@ export const createTypes = z.object({
 
 
 export type Tcreate = z.infer<typeof createTypes>
+
+export const createpolicyTypes = z.object({
+    "name": z.object({
+        "ar": z.string()
+    }),
+    "description": z.object({
+        "ar": z.string()
+    }),
+    "url": z.optional(z.string()),
+    "guid": z.optional(z.string())
+})
+export type TcreatepolicyTypes = z.infer<typeof createpolicyTypes>
+
+
+export const createcolorsTypes = z.object({
+    "name": z.string(),
+    "code": z.string()
+})
+export type TcreatecolorsTypes = z.infer<typeof createcolorsTypes>
+

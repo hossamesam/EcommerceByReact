@@ -30,10 +30,10 @@ function Pagination({ PaginationCount, routs }: { PaginationCount: number, routs
                 <a href={hrefChange({ act: "minus" })}>«</a>
                 {
                     Array.from({ length: PaginationCount }, (_, index) => (
-                        <a className={index == Number(Params.prefix) && active} href={`./${index}`}  onClick={() => handleChange(index)} key={index}> {index}</a>
+                        <a className={index == Number(Params.prefix) ? active : undefined} href={`./${index}`} onClick={() => handleChange(index)} key={index}> {index}</a>
                     ))
                 }
-                {/* <button className={active}>6</button> */}
+                
                 <a href={hrefChange({ act: "plus" })} >»</a>
             </div>
         </div>

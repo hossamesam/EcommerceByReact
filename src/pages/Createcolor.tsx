@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import { Autocomplete, Box, Button, Checkbox, Divider, TextField, Typography } from '@mui/material'
+import { Autocomplete, Box, Button, Checkbox, Divider, FormControl, FormLabel, TextField, Typography } from '@mui/material'
 import { MuiColorInput } from 'mui-color-input'
 import axios from 'axios'
-import { useAppSelector } from '@redux/hooks'
+import { useAppDispatch, useAppSelector } from '@redux/hooks'
+import { toast, Toaster } from 'sonner'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { createcolorsTypes, TcreatecolorsTypes } from '@typesTs/createTypes'
+import { actcreatecolorSlice } from '@redux/createcolor/createcolor'
+import { withTranslation } from 'react-i18next'
 
 
 
-function Addcolor() {
-    const { accessToken } = useAppSelector(state => state.authSlice)
+function Createcolor({ t }: any) {
     const [colorValue, setColorValue] = React.useState('#ffffff');
     const [suggestedName, setSuggestedName] = React.useState('');
     const [colorOptions, setColorOptions] = React.useState<{ group: string; name: string; hex: string; rgb: string; theme: string }[]>([]);
     const [ValueColorName, setValueColorName] = React.useState("#ffffff");
-    const [autocomplete, setautocomplete] = useState(false)
+    const [autocomplete, setautocomplete] = useState(false);
+    const dispatch = useAppDispatch()
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting, isDirty, isValid }
+    } = useForm<TcreatecolorsTypes>({
+        mode: 'onChange',
+        resolver: zodResolver(createcolorsTypes)
+    })
+
+
+
     useEffect(() => {
         axios
             .get(`https://www.csscolorsapi.com/api/colors`)
@@ -32,22 +50,14 @@ function Addcolor() {
         }
     }, [ValueColorName])
 
-
-    const handleClick = (event: any) => {
-        const formData = Object.fromEntries(event.entries()) as {
-            name: string;
-            code: string;
-        };
-        axios
-            .post(`${import.meta.env.VITE_BaseUrl}/api/colors`, formData, {
-                headers: { "Authorization": `Bearer ${accessToken}` },
+    const handleClick = ({ name, code }: { name: string, code: string }) => {
+        dispatch(actcreatecolorSlice({ name: suggestedName, code }))
+            .then(() => {
+                return toast.success(t('toast.success'))
             })
-            .then((response) => {
-                console.log('Color added successfully:', response);
+            .catch(() => {
+                return toast.error(t('toast.error'))
             })
-            .catch((error) => {
-                console.error('Error adding color:', error);
-            });
     };
 
     const handleColorChange = (newColorValue: any) => {
@@ -64,13 +74,12 @@ function Addcolor() {
                 console.error('Error fetching color name:', error);
             });
     };
-
+    
     return (
-        <>
+        <div className="flex  justify-center items-center">
             <form
-
-                onSubmit={handleClick}
-                className="flex flex-col gap-4 lg:mx-24 xl:mx-64 mt-16 bg-gray-100 border-2 border-gray-500 rounded-lg p-2 ml-10 mb-5"
+                onSubmit={handleSubmit(handleClick)}
+                className="flex my-4 w-[80%] xl:scale-90 flex-col gap-4  bg-gray-100 border-2 border-gray-500 rounded-lg p-4 "
             >
                 <Typography variant="h4">اضافة لون جديد</Typography>
                 <Divider />
@@ -79,7 +88,7 @@ function Addcolor() {
                     <Box className="flex flex-col w-40">
                         <Typography variant="h5">اختار اللون</Typography>
                         <MuiColorInput
-                            name="code"
+                            {...register("code")}
                             format="hex"
                             value={colorValue}
                             onChange={handleColorChange}
@@ -89,15 +98,14 @@ function Addcolor() {
                         <Typography variant="h5">اسم اللون</Typography>
                         <Autocomplete
                             freeSolo
+                            {...register("name")}
                             options={colorOptions.map((option) => option.name)}
                             value={suggestedName}
                             onChange={(_, value: any) => setValueColorName(value)}
-
                             renderInput={(params) => (
                                 <TextField
-                                    onChange={(value: any) => setValueColorName(value)}
-                                    name="name"
                                     {...params}
+                                    onChange={(value: any) => setValueColorName(value)}
                                     variant="outlined"
                                     fullWidth
                                 />
@@ -106,7 +114,7 @@ function Addcolor() {
                     </Box>
                     <Box className="flex justify-center items-center  mt-[30px] gap-1">
                         <Checkbox onChange={(e) => { setautocomplete(e.target.checked) }} />
-                        <label htmlFor="Auto" className='text-xl font-medium '> الملئ التلقائي بالاسم</label>
+                        <FormLabel className='text-xl font-medium '> الملئ التلقائي </FormLabel>
                     </Box>
                 </Box>
 
@@ -115,10 +123,17 @@ function Addcolor() {
                     اضافة
                 </Button>
             </form>
-        </>
+            <Toaster
+                duration={5000}
+                gap={35}
+                richColors
+                closeButton
+                position={'bottom-right'}
+            />
+        </div>
     );
 }
 
 
-export default Addcolor
 
+export default withTranslation()(Createcolor)

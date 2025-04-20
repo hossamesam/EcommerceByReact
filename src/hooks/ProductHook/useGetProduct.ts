@@ -11,8 +11,8 @@ createSelector
 export default function useGetProduct(quiry: TgetAllItemstype) {
   const dispatch = useAppDispatch()
   const { Data, error, loading, DataOfItem, PaginationCount, PaginationCountList } = useAppSelector((state) => state.Products);
-
   sizeItems: PaginationCountList
+
 
   try {
     if (!!quiry) {

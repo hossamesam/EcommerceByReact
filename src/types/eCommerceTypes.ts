@@ -6,7 +6,7 @@ export type Categorietype = {
   link?: string;
 };
 export type TCart = {
-  id: number;
+  id: string;
   backgroundImage: string;
   Text: string;
   Price: number;
@@ -33,8 +33,8 @@ export type TCategories = {
 export type TProduct = {
   attributes: {};
   barcode: string;
-  category: { id: number; attributes: [] };
-  colors: [{ id: number }];
+  category: { id: string; attributes: [] };
+  colors: [{ id: string }];
   description: string;
   descriptionTranslate: { en: string };
   id: string;
@@ -60,7 +60,7 @@ export type TProduct = {
 }
 export type TFilterCategory =
   {
-    id: number;
+    id: string;
     code: string;
     nameAr: string;
     nameTranslate: {

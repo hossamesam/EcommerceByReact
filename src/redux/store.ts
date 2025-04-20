@@ -44,32 +44,33 @@ const rootPersistConfig = {
 const authPersistConfig = {
     key: "auth",
     storage,
+    debug: true,
     whitelist: ["user", "accessToken"],
 };
 const cartPersistConfig = {
     key: 'cart',
     storage,
-    // debug: true,
+    debug: true,
     whitelist: ['items']
 }
 const themePersistConfig = {
     key: 'theme',
     storage,
-    // debug: true,
+    debug: true,
     whitelist: ['theme']
 }
 const ProductsPersistConfig = {
     key: 'Products',
     storage,
-    // debug: true,
-    whitelist: ['PaginationCount', 'PaginationCountList']
+    debug: true,
+    // whitelist: ['PaginationCount', 'PaginationCountList']
 }
 
 const rootReducer = combineReducers({
     // authSlice,
     authSlice: persistReducer(authPersistConfig, authSlice),
     categories,
-    Products: persistReducer(ProductsPersistConfig, productsSlice),
+    Products: persistReducer(ProductsPersistConfig, Products),
     filterSlice,
     theme: persistReducer(themePersistConfig, themeSlice),
     cart: persistReducer(cartPersistConfig, cart),
@@ -83,6 +84,7 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
+
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         }),
